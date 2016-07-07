@@ -1,0 +1,10 @@
+"hg7290
+
+loadplugins '\.(js|penta)$'
+group user
+highlight HintElem background-color:#b00b13 !important; color:#fefefe !important
+set cdpath=''
+set defsearch=duckduckgo
+set hintkeys=asdfghjkl;
+
+" vim: set ft=pentadactyl:

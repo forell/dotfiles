@@ -1,0 +1,293 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+# This config file uses keycodes (bindsym) and was written for the QWERTY
+# layout.
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
+#
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Maven Pro Bold 11 
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
+
+set $mod Mod4
+
+# workspaces
+set $ws1 1 
+set $ws2 2 
+set $ws3 3 
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10 
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up k
+set $down j
+set $left h
+set $right l
+
+# gaps
+gaps inner 10
+gaps outer 10
+smart_gaps on
+smart_borders on
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec ~/bin/i3/rofirun.sh
+bindsym $mod+Shift+d exec ~/bin/i3/rofirunall.sh
+bindsym Mod1+Tab exec ~/bin/i3/rofiwindow.sh
+# dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command i3blocks
+        position top
+        font pango:Maven Pro Bold 11, Font Awesome Bold 11
+        colors {
+            # background #0c0c0f
+            background #1d1e24
+            # statusline #ffffff
+            # separator #ffffff 
+                               #border bg      text
+            # focused_workspace  #b00b13 #b00b13 #efefef
+            focused_workspace  #1d1e24 #1d1e24 #b00b13
+            # active_workspace   #b00b13 #b00b13 #aaaaaa
+            inactive_workspace #1d1e24 #1d1e24 #888888
+            urgent_workspace   #c2ff00 #c2ff00 #444444
+        }
+}
+
+#################
+# exec on keybind
+bindsym $mod+u exec --no-startup-id i3-sensible-terminal --class float_this -e "vim /home/forell/var/cache/updates"
+bindsym $mod+Shift+u exec --no-startup-id i3-sensible-terminal --class float_this -e "pacaur -Syu"
+
+#######
+# stuff
+exec --no-startup-id ~/bin/wpchange.py
+
+exec --no-startup-id nm-applet
+
+exec --no-startup-id setxkbmap -option caps:swapescape
+#######
+## lock
+exec --no-startup-id xautolock -time 5 -locker screenlock
+
+bindsym $mod+Control+L exec "i3lock -c 000000"
+bindsym $mod+semicolon exec ~/bin/i3/shutdown_menu
+
+#############
+## media keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%; exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%; exec --no-startup-id pkill -RTMIN+10 i3blocks
+
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight + 8; exec --no-startup-id sleep 1; exec --no-startup-id pkill -RTMIN+12 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight - 8; exec --no-startup-id sleep 1; exec --no-startup-id pkill -RTMIN+12 i3blocks
+
+############
+# keyboard l
+bindsym $mod+KP_Subtract exec --no-startup-id xkb-switch -n;exec --no-startup-id pkill -RTMIN+11 i3blocks
+
+############
+## autostart
+exec --no-startup-id xfce4-power-manager
+
+exec --no-startup-id compton --backend glx --paint-on-overlay --glx-no-stencil --vsync opengl-swc --config ~/.config/compton.conf -b &
+
+exec --no-startup-id redshift-gtk
+
+exec devmon &
+
+exec unclutter --timeout 1 --jitter 10 &
+
+for_window [class="Keepassx2"] floating enable
+exec --no-startup-id keepassx2
+
+exec --no-startup-id i3-msg 'workspace $ws10; exec DiscordCanary'
+for_window [class="Skype"] sticky enable
+exec --no-startup-id i3-msg 'workspace $ws10; exec skype'
+
+exec --no-startup-id gnome-keyring-daemon
+
+exec --no-startup-id rm -rf ~/.local/share/Trash
+#########################################
+# screenshot keybinds and stuff like that
+bindsym Print exec --no-startup-id gnome-screenshot
+
+bindsym --release Shift+Print exec --no-startup-id gnome-screenshot -a
+
+bindsym Mod1+Sys_Req exec --no-startup-id gnome-screenshot -w
+
+bindsym --release Control+Print exec --no-startup-id gnome-screenshot -c
+
+bindsym --release Control+Shift+Print exec --no-startup-id gnome-screenshot -ac
+
+bindsym --release Control+Mod1+Sys_Req exec --no-startup-id gnome-screenshot -wc
+
+bindsym --release Control+Shift+Mod1+Sys_Req exec --no-startup-id gnome-screenshot -i
+
+
+new_window pixel 3
+focus_follows_mouse no
+
+# windows I like to have floated, for whatever reason
+for_window [title="Terminator Preferences"] floating enable
+for_window [class="Gnome-calendar"] floating enable
+for_window [class="Gxmessage"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="^float_this$"] floating enable
+
+############
+# appearance
+#                       border  backgr  text    indicator
+client.focused          #b00b13 #b00b13 #efefef #b00b13
+# client.focused_inactive #5f676a #5f676a #e0e0e0 #5f676a
+client.focused_inactive #202228 #202228 #888888 #222222
+client.unfocused        #202228 #202228 #888888 #222222
+client.urgent           #c2ff00 #c2ff00 #222222 #c2ff00
