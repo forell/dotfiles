@@ -9,3 +9,10 @@ ln -sfv "$dots_dir/.inputrc" "$HOME"
 ln -sfv "$dots_dir/.pentadactylrc" "$HOME"
 ln -sfv "$dots_dir/.vimrc" "$HOME"
 ln -sfv "$dots_dir/.xprofile" "$HOME"
+if [ -e "/etc/pulse/default.pa" ]; then
+    sudo cp "$dots_dir/default.pa" "/etc/pulse/default.pa.new"
+    echo "/etc/pulse/default.pa already exists, new file saved as default.pa.new"
+else
+    sudo cp "$dots_dir/default.pa" "/etc/pulse/default.pa"
+    echo "Created a new default.pa in /etc/pulse/"
+fi

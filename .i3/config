@@ -281,6 +281,7 @@ for_window [title="Terminator Preferences"] floating enable
 for_window [class="Gnome-calendar"] floating enable
 for_window [class="Gxmessage"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Org.gnome.Characters"] floating enable
 for_window [class="^float_this$"] floating enable
 
 ############
