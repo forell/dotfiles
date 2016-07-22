@@ -249,7 +249,7 @@ exec unclutter --timeout 1 --jitter 10 &
 for_window [class="Keepassx2"] floating enable
 exec --no-startup-id keepassx2
 
-exec --no-startup-id i3-msg 'workspace $ws10; exec DiscordCanary'
+exec --no-startup-id i3-msg 'workspace $ws10; exec discord-canary'
 for_window [class="Skype"] sticky enable
 exec --no-startup-id i3-msg 'workspace $ws10; exec skype'
 
@@ -277,9 +277,6 @@ new_window pixel 3
 focus_follows_mouse no
 
 # windows I like to have floated, for whatever reason
-for_window [title="Terminator Preferences"] floating enable
-for_window [class="Gnome-calendar"] floating enable
-for_window [class="Gxmessage"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Org.gnome.Characters"] floating enable
 for_window [class="^float_this$"] floating enable
