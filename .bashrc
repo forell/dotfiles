@@ -25,5 +25,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 set -o vi
+shopt -s globstar
 export EDITOR=vim
 export VISUAL=vim

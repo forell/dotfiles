@@ -9,10 +9,19 @@ ln -sfv "$dots_dir/.inputrc" "$HOME"
 ln -sfv "$dots_dir/.pentadactylrc" "$HOME"
 ln -sfv "$dots_dir/.vimrc" "$HOME"
 ln -sfv "$dots_dir/.xprofile" "$HOME"
+
 if [ -e "/etc/pulse/default.pa" ]; then
     sudo cp "$dots_dir/default.pa" "/etc/pulse/default.pa.new"
     echo "/etc/pulse/default.pa already exists, new file saved as default.pa.new"
 else
     sudo cp "$dots_dir/default.pa" "/etc/pulse/default.pa"
     echo "Created a new default.pa in /etc/pulse/"
+fi
+
+if [ -e "/etc/X11/xorg.conf.d/00-keyboard.conf" ]; then
+    sudo cp "$dots_dir/00-keyboard.conf" "/etc/X11/xorg.conf.d/00-keyboard.conf.new"
+    echo "/etc/X11/xorg.conf.d/00-keyboard.conf already exists, new file saved as /etc/X11/xorg.conf.d/00-keyboard.conf.new" 
+else
+    sudo cp "$dots_dir/00-keyboard.conf" "/etc/X11/xorg.conf.d/00-keyboard.conf"
+    echo "Created a new 00-keyboard.conf in /etc/X11/xorg.conf.d/"
 fi
