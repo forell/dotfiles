@@ -1,14 +1,14 @@
 #!/bin/bash
 
 dots_dir="$HOME/.dotfiles"
-ln -sfv "$dots_dir/.bash_profile" "$HOME"
+ln -sfv "$dots_dir/.profile" "$HOME"
 ln -sfv "$dots_dir/.bashrc" "$HOME"
 ln -sfv "$dots_dir/.i3" "$HOME"
 ln -sfv "$dots_dir/.i3blocks.conf" "$HOME"
 ln -sfv "$dots_dir/.inputrc" "$HOME"
 ln -sfv "$dots_dir/.pentadactylrc" "$HOME"
 ln -sfv "$dots_dir/.vimrc" "$HOME"
-ln -sfv "$dots_dir/.xprofile" "$HOME"
+ln -sfv "$dots_dir/.xinitrc" "$HOME"
 
 if [ -e "/etc/pulse/default.pa" ]; then
     sudo cp "$dots_dir/default.pa" "/etc/pulse/default.pa.new"
