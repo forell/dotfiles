@@ -206,19 +206,13 @@ bar {
 #################
 # exec on keybind
 bindsym $mod+u exec --no-startup-id i3-sensible-terminal --class float_this -e "vim /home/forell/.cache/updates"
-bindsym $mod+Shift+u exec --no-startup-id i3-sensible-terminal --class float_this -e "pacaur -Syu"
 
 #######
 # stuff
-exec --no-startup-id ~/bin/wpchange.py
-
 exec --no-startup-id nm-applet
 
-# exec --no-startup-id setxkbmap -option caps:swapescape
 #######
 ## lock
-exec --no-startup-id xautolock -time 5 -locker screenlock
-
 bindsym $mod+Control+L exec "i3lock -c 000000"
 bindsym $mod+semicolon exec ~/bin/i3/shutdown_menu
 

@@ -23,6 +23,9 @@ eval $(thefuck --alias FUCK)
 
 alias ..='cd ..'
 alias ...='cd ../..'
+function calc {
+  echo "$@" | bc -l | sed '/\./ s/\.\{0,1\}0\{1,\}$//'
+}
 
 set -o vi
 shopt -s globstar
