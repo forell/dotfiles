@@ -28,5 +28,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+if type "hsetroot" > /dev/null; then
+    hsetroot -solid "#202228"
+fi
+
 export QT_STYLE_OVERRIDE='gtk2'
 exec i3
