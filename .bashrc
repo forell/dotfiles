@@ -24,6 +24,7 @@ eval $(thefuck --alias FUCK)
 alias ..='cd ..'
 alias ...='cd ../..'
 alias svim=sudoedit
+alias sussudo=sudo # I blame James
 function calc {
   echo "$@" | bc -l | sed '/\./ s/\.\{0,1\}0\{1,\}$//'
 }
