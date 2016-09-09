@@ -245,7 +245,6 @@ exec --no-startup-id keepassx2
 
 exec --no-startup-id i3-msg 'workspace $ws10; exec discord-canary'
 for_window [class="Skype"] sticky enable
-exec --no-startup-id i3-msg 'workspace $ws10; exec skype'
 
 exec --no-startup-id gnome-keyring-daemon
 
