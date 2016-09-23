@@ -6,5 +6,6 @@ highlight HintElem background-color:#b00b13 !important; color:#fefefe !important
 set cdpath=''
 set defsearch=duckduckgo
 set hintkeys=asdfghjkl;
+autocmd LocationChange 'https://docs.google.com/*' :normal! <C-z>
 
 " vim: set ft=pentadactyl:

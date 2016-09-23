@@ -9,7 +9,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'scrooloose/nerdtree'
 Plugin 'weynhamz/vim-plugin-minibufexpl'
 Plugin 'freitass/todo.txt-vim'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
 call vundle#end()
 
 filetype plugin indent on
@@ -35,6 +36,9 @@ set directory=~/.vim/swp// " dumb vim swaps
 syntax on
 let g:ycm_global_ycm_extra_conf = '/home/forell/.vim/ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
+let g:UltiSnipsExpandTrigger="<Localleader><tab>"
+let g:UltiSnipsJumpForwardTrigger="<Leader>j"
+let g:UltiSnipsJumpBackwardTrigger="<Leader>k"
 augroup resCur
   autocmd!
   autocmd BufReadPost * call setpos(".", getpos("'\""))
