@@ -7,5 +7,6 @@ set cdpath=''
 set defsearch=duckduckgo
 set hintkeys=asdfghjkl;
 autocmd LocationChange 'https://docs.google.com/*' :normal! <C-z>
+autocmd LocationChange 'https://codingame.com/ide/*' :normal! <C-z>
 
 " vim: set ft=pentadactyl:

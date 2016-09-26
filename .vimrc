@@ -36,9 +36,12 @@ set directory=~/.vim/swp// " dumb vim swaps
 syntax on
 let g:ycm_global_ycm_extra_conf = '/home/forell/.vim/ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
-let g:UltiSnipsExpandTrigger="<Localleader><tab>"
-let g:UltiSnipsJumpForwardTrigger="<Leader>j"
-let g:UltiSnipsJumpBackwardTrigger="<Leader>k"
+" An arbitrary keybind because I couldn't get it to work with <C-Tab> in
+" terminal vim. Meh.
+let g:UltiSnipsExpandTrigger="<C-A>"
+let g:UltiSnipsJumpForwardTrigger="<C-J>"
+let g:UltiSnipsJumpBackwardTrigger="<C-K>"
+
 augroup resCur
   autocmd!
   autocmd BufReadPost * call setpos(".", getpos("'\""))
@@ -49,10 +52,10 @@ let g:indent_guides_auto_colors = 1
 " autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
 
 " slightly more intuitive splitting to match my wm
 set splitbelow splitright
