@@ -207,6 +207,9 @@ bar {
 # exec on keybind
 bindsym $mod+u exec --no-startup-id i3-sensible-terminal --class float_this -e "vim /home/forell/.cache/updates"
 
+bindsym $mod+t exec --no-startup-id i3-sensible-terminal --class float_this -e "vim /home/forell/todo/todo.txt"
+bindsym $mod+Shift+t exec --no-startup-id i3-sensible-terminal --class float_this -e "vim /home/forell/todo/done.txt"
+
 #######
 # stuff
 exec --no-startup-id nm-applet

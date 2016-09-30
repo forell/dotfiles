@@ -25,7 +25,21 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias svim=sudoedit
 alias sussudo=sudo # I blame James
-function calc {
+
+todo() {
+    if [ $# -gt 0 ]; then
+        if [ "$1" == "-e" ]; then
+            vim /home/forell/todo/todo.txt
+        else if [ "$1" == "-d" ]; then
+            cat /home/forell/todo/done.txt
+            fi
+        fi
+    else
+        cat /home/forell/todo/todo.txt
+    fi
+}
+
+calc() {
   echo "$@" | bc -l | sed '/\./ s/\.\{0,1\}0\{1,\}$//'
 }
 
