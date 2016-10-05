@@ -14,7 +14,7 @@ Plugin 'SirVer/ultisnips'
 call vundle#end()
 
 filetype plugin indent on
-set linebreak breakindent hlsearch expandtab ts=4 sw=4 number relativenumber encoding=utf-8 shortmess=Ia termguicolors 
+set linebreak breakindent expandtab ts=4 sw=4 number relativenumber encoding=utf-8 shortmess=Ia termguicolors noswapfile " hlsearch 
 let mapleader="\<Space>"
 let maplocalleader="/"
 
@@ -32,7 +32,6 @@ nmap <Leader>P "+P
 noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR> <C-w>=
 
 set backupdir=~/.vim/backup//
-set directory=~/.vim/swp// " dumb vim swaps
 syntax on
 let g:ycm_global_ycm_extra_conf = '/home/forell/.vim/ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
