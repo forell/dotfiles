@@ -18,7 +18,7 @@ set linebreak breakindent expandtab ts=4 sw=4 number relativenumber encoding=utf
 let mapleader="\<Space>"
 let maplocalleader="/"
 
-" for less awkward copy paste from/to X
+" For less awkward copy paste from/to X
 vmap <Leader>y "+y
 vmap <Leader>d "+d
 vmap <Leader>p "+p
@@ -26,7 +26,7 @@ vmap <Leader>P "+P
 nmap <Leader>p "+p
 nmap <Leader>P "+P
 
-" the following is copied from the wiki for editing a single file in two panes
+" The following is copied from the wiki for editing a single file in two panes
 " when I have vim spanning my whole screen or otherwise a wide area;
 " sometimes it gets screwed up but just setting it up again fixes it
 noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR> <C-w>=
@@ -53,16 +53,16 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " nnoremap <C-J> <C-W><C-J>
 " nnoremap <C-K> <C-W><C-K>
-" nnoremap <C-L> <C-W><C-L>
-" nnoremap <C-H> <C-W><C-H>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-" slightly more intuitive splitting to match my wm
+" Slightly more intuitive splitting to match my wm
 set splitbelow splitright
 
-" removes the annoying O delay and also prevents normal arrow key usage
+" Removes the annoying O delay and also prevents normal arrow key usage
 set noesckeys
 
-" automatically close brackets, braces and such
+" Automatically close brackets, braces and such
 inoremap { {}<C-[>i
 inoremap {<CR> {<CR>}<C-o>O
 inoremap {{ {
@@ -88,3 +88,6 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#25272D
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#25272D
+
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
