@@ -82,7 +82,7 @@ inoremap „ „”<C-[>i
 " which I found particularly annoying for some reason.
 noremap   <Space>  <NOP>
 
-autocmd Filetype html,xml inoremap < <><C-[>i " autoclose those <>s
+autocmd Filetype html,xml inoremap < <><C-[>i
 autocmd VimEnter * execute "normal \<C-L>"
 colorscheme molokai
 let g:molokai_original = 1
