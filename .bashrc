@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 
 red="\[\e[1;38;5;124m\]"
 clean="\[\e[0m\]"

@@ -7,14 +7,26 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'scrooloose/nerdtree'
-Plugin 'weynhamz/vim-plugin-minibufexpl'
 Plugin 'freitass/todo.txt-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 
 filetype plugin indent on
-set linebreak breakindent expandtab ts=4 sw=4 number relativenumber encoding=utf-8 shortmess=Ia termguicolors noswapfile " hlsearch 
+set linebreak breakindent
+set expandtab ts=4 sw=4
+set number relativenumber
+set encoding=utf-8 shortmess=Ia termguicolors noswapfile hidden
+set backupdir=~/.vim/backup//
+
+" Slightly more intuitive splitting to match my wm
+set splitbelow splitright
+
+" Removes the annoying O delay and also prevents normal arrow key usage
+set noesckeys
+
 let mapleader="\<Space>"
 let maplocalleader="/"
 
@@ -31,7 +43,6 @@ nmap <Leader>P "+P
 " sometimes it gets screwed up but just setting it up again fixes it
 noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR> <C-w>=
 
-set backupdir=~/.vim/backup//
 syntax on
 let g:ycm_global_ycm_extra_conf = '/home/forell/.vim/ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
@@ -45,8 +56,6 @@ augroup resCur
   autocmd!
   autocmd BufReadPost * call setpos(".", getpos("'\""))
 augroup END
-set background=dark
-let g:indent_guides_auto_colors = 1
 
 " autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -56,11 +65,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Slightly more intuitive splitting to match my wm
-set splitbelow splitright
-
-" Removes the annoying O delay and also prevents normal arrow key usage
-set noesckeys
 
 " Automatically close brackets, braces and such
 inoremap { {}<C-[>i
@@ -80,14 +84,14 @@ noremap   <Space>  <NOP>
 
 autocmd Filetype html,xml inoremap < <><C-[>i " autoclose those <>s
 autocmd VimEnter * execute "normal \<C-L>"
-let g:indent_guides_enable_on_vim_startup = 1
 colorscheme molokai
 let g:molokai_original = 1
 
-let g:indent_guides_guide_size = 1
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#25272D
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#25272D
-
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
+
+runtime! ftplugin/man.vim
+
+set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
