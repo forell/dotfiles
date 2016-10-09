@@ -15,7 +15,7 @@ Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 
 filetype plugin indent on
-set linebreak breakindent
+set linebreak breakindent cursorline
 set expandtab ts=4 sw=4
 set number relativenumber
 set encoding=utf-8 shortmess=Ia termguicolors noswapfile hidden
@@ -84,14 +84,16 @@ noremap   <Space>  <NOP>
 
 autocmd Filetype html,xml inoremap < <><C-[>i
 autocmd VimEnter * execute "normal \<C-L>"
-colorscheme molokai
-let g:molokai_original = 1
+autocmd Filetype todo set norelativenumber
+
+colorscheme molokai_red
 
 autocmd InsertEnter * :set norelativenumber
-autocmd InsertLeave * :set relativenumber
+autocmd InsertLeave * if &ft != "todo" | :set relativenumber | endif
 
 runtime! ftplugin/man.vim
 
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='molokai'

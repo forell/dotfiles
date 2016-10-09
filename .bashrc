@@ -26,6 +26,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias svim=sudoedit
 alias sussudo=sudo # I blame James
+alias clr="printf '\033\143'"
 
 todo() {
     if [ $# -gt 0 ]; then
