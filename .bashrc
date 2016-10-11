@@ -42,8 +42,14 @@ todo() {
 }
 
 calc() {
-  echo "$@" | bc -l | sed '/\./ s/\.\{0,1\}0\{1,\}$//'
+    echo "$@" | bc -l | sed '/\./ s/\.\{0,1\}0\{1,\}$//'
 }
+
+vman() {
+    man $@ | vim -c "set ft=man" -
+}
+
+alias man=vman
 
 set -o vi
 shopt -s globstar

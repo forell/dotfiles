@@ -84,7 +84,8 @@ noremap   <Space>  <NOP>
 
 autocmd Filetype html,xml inoremap < <><C-[>i
 autocmd VimEnter * execute "normal \<C-L>"
-autocmd Filetype todo set norelativenumber
+autocmd Filetype todo,man set norelativenumber
+set keywordprg=:Man
 
 colorscheme molokai_red
 
