@@ -12,6 +12,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ludovicchabant/vim-gutentags'
 call vundle#end()
 
 filetype plugin indent on
@@ -28,7 +29,7 @@ set splitbelow splitright
 set noesckeys
 
 let mapleader="\<Space>"
-let maplocalleader="/"
+let maplocalleader="\\"
 
 " For less awkward copy paste from/to X
 vmap <Leader>y "+y
@@ -85,12 +86,13 @@ noremap   <Space>  <NOP>
 autocmd Filetype html,xml inoremap < <><C-[>i
 autocmd VimEnter * execute "normal \<C-L>"
 autocmd Filetype todo,man set norelativenumber
+autocmd Filetype man set nonumber
 set keywordprg=:Man
 
 colorscheme molokai_red
 
 autocmd InsertEnter * :set norelativenumber
-autocmd InsertLeave * if &ft != "todo" | :set relativenumber | endif
+autocmd InsertLeave * if &ft != "todo" && &ft != "man" | :set relativenumber | endif
 
 runtime! ftplugin/man.vim
 

@@ -225,14 +225,14 @@ bindsym $mod+semicolon exec $HOME/bin/i3/shutdown_menu
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%; exec --no-startup-id pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%; exec --no-startup-id pkill -RTMIN+10 i3blocks
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight + 8; exec --no-startup-id sleep 1; exec --no-startup-id pkill -RTMIN+12 i3blocks
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight - 8; exec --no-startup-id sleep 1; exec --no-startup-id pkill -RTMIN+12 i3blocks
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight + 8; exec --no-startup-id pkill -RTMIN+12 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight - 8; exec --no-startup-id pkill -RTMIN+12 i3blocks
 
 ###########
 # cmus crap
-bindsym $mod+Shift+P exec --no-startup-id cmus-remote -u
-bindsym $mod+o exec --no-startup-id cmus-remote -r
-bindsym $mod+p exec --no-startup-id cmus-remote -n
+bindsym $mod+p exec --no-startup-id cmus-remote -u; exec --no-startup-id pkill -RTMIN+12 i3blocks
+bindsym $mod+bracketleft exec --no-startup-id cmus-remote -r; exec --no-startup-id pkill -RTMIN+12 i3blocks
+bindsym $mod+bracketright exec --no-startup-id cmus-remote -n; exec --no-startup-id pkill -RTMIN+12 i3blocks
 
 ############
 # keyboard l
@@ -242,7 +242,8 @@ bindsym $mod+KP_Subtract exec --no-startup-id xkb-switch -n;exec --no-startup-id
 # autostart
 exec --no-startup-id xfce4-power-manager
 
-exec --no-startup-id compton --backend glx --paint-on-overlay --glx-no-stencil --vsync opengl-swc --config $HOME/config/compton.conf -b &
+# exec --no-startup-id compton --backend glx --paint-on-overlay --glx-no-stencil --vsync opengl-swc --config $HOME/config/compton.conf -b &
+exec --no-startup-id compton --backend glx --paint-on-overlay --glx-no-stencil --vsync opengl-swc -b &
 
 exec --no-startup-id redshift-gtk
 
@@ -258,7 +259,7 @@ for_window [class="Skype"] sticky enable
 
 exec --no-startup-id gnome-keyring-daemon
 
-exec --no-startup-id rm -rf $HOME/local/share/Trash
+exec --no-startup-id rm -rf "$HOME/.local/share/Trash"
 #########################################
 # screenshot keybinds and stuff like that
 bindsym Print exec --no-startup-id gnome-screenshot -f "$HOME/pictures/screenshots/$(date +%F_%H-%M-%S).png"

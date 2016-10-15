@@ -46,6 +46,9 @@ calc() {
 }
 
 vman() {
+    # In case it's ever useful: prepend e.g. MANWIDTH=80 to set a fixed width.
+    # I find that with line numbers disabled in vim for &ft=="man", it works
+    # best to just let it automatically adjust.
     man $@ | vim -c "set ft=man" -
 }
 
