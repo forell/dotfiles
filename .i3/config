@@ -233,6 +233,18 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight - 8; exec --no-sta
 bindsym $mod+p exec --no-startup-id cmus-remote -u; exec --no-startup-id pkill -RTMIN+12 i3blocks
 bindsym $mod+bracketleft exec --no-startup-id cmus-remote -r; exec --no-startup-id pkill -RTMIN+12 i3blocks
 bindsym $mod+bracketright exec --no-startup-id cmus-remote -n; exec --no-startup-id pkill -RTMIN+12 i3blocks
+bindsym $mod+Shift+bracketleft exec --no-startup-id cmus-remote -v -5%
+bindsym $mod+Shift+bracketright exec --no-startup-id cmus-remote -v +5%
+
+mode "cmus" {
+    bindsym $mod+R exec --no-startup-id cmus-remote -C "toggle repeat_current"
+    bindsym $mod+minus exec --no-startup-id cmus-remote -v -5%
+    bindsym $mod+plus exec --no-startup-id cmus-remote -v +5%
+    bindsym $mod+equal exec --no-startup-id cmus-remote -v +5%
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+m mode "cmus"
 
 ############
 # keyboard l
@@ -247,8 +259,6 @@ exec --no-startup-id compton --backend glx --paint-on-overlay --glx-no-stencil -
 
 exec --no-startup-id redshift-gtk
 
-exec devmon &
-
 exec unclutter --timeout 1 --jitter 10 &
 
 for_window [class="Keepassx2"] floating enable
@@ -256,8 +266,6 @@ exec --no-startup-id keepassx2
 
 exec --no-startup-id i3-msg 'workspace $ws10; exec discord-canary'
 for_window [class="Skype"] sticky enable
-
-exec --no-startup-id gnome-keyring-daemon
 
 exec --no-startup-id rm -rf "$HOME/.local/share/Trash"
 #########################################

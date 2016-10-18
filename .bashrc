@@ -32,9 +32,8 @@ todo() {
     if [ $# -gt 0 ]; then
         if [ "$1" == "-e" ]; then
             vim /home/forell/todo/todo.txt
-        else if [ "$1" == "-d" ]; then
+        elif  [ "$1" == "-d" ]; then
             cat /home/forell/todo/done.txt
-            fi
         fi
     else
         cat /home/forell/todo/todo.txt
@@ -45,11 +44,23 @@ calc() {
     echo "$@" | bc -l | sed '/\./ s/\.\{0,1\}0\{1,\}$//'
 }
 
+cmus_screen() {
+    if cmus-remote -Q > /dev/null; then
+        screen -dr cmus
+    else
+        screen -S cmus cmus
+    fi
+}
+
+alias cmus=cmus_screen
+
 vman() {
     # In case it's ever useful: prepend e.g. MANWIDTH=80 to set a fixed width.
     # I find that with line numbers disabled in vim for &ft=="man", it works
     # best to just let it automatically adjust.
-    man $@ | vim -c "set ft=man" -
+    if man $@ > /dev/null; then
+        man $@ | vim -c "set ft=man" -
+    fi
 }
 
 alias man=vman
