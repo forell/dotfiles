@@ -15,6 +15,6 @@ if type "screen" > /dev/null && type "cmus" > /dev/null && ! cmus-remote -Q > /d
     screen -S cmus cmus
 fi
 
-if [ -z "$DISPLAY" ] $$ [ "$(fgconsole)" -eq 1 ]; then
+if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
     startx
 fi
