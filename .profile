@@ -12,7 +12,7 @@ if [ -e "$HOME/.dotfiles/vc-swap-esc-caps.map" ]; then
 fi
 
 if type "screen" > /dev/null && type "cmus" > /dev/null && ! cmus-remote -Q > /dev/null; then
-    screen -S cmus cmus
+    screen -S cmus -dm cmus
 fi
 
 if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
