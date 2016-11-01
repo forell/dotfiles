@@ -11,7 +11,7 @@ if [ -e "$HOME/.dotfiles/vc-swap-esc-caps.map" ]; then
     sudo loadkeys /home/forell/.dotfiles/vc-swap-esc-caps.map
 fi
 
-if type "screen" > /dev/null && type "cmus" > /dev/null && ! cmus-remote -Q > /dev/null; then
+if type "screen" > /dev/null && type "cmus" > /dev/null && ! cmus-remote -Q >/dev/null 2>&1; then
     screen -S cmus -dm cmus
 fi
 

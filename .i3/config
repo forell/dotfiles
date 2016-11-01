@@ -27,16 +27,25 @@ font pango:Hack 10
 set $mod Mod4
 
 # workspaces
-set $ws1 1 
-set $ws2 2 
-set $ws3 3 
+set $ws1 1
+set $ws2 2
+set $ws3 3
 set $ws4 4
 set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
 set $ws9 9
-set $ws10 10 
+set $ws10 10
+set $ws11 11
+set $ws12 12
+set $ws13 13
+set $ws14 14
+set $ws15 15
+set $ws16 16
+set $ws17 17
+set $ws18 18
+set $ws19 19
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up k
@@ -55,6 +64,11 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+
+# "drop-down" style terminal
+for_window [class="drop-down"] floating enable, border none, move position 0px 18px, move to scratchpad
+exec --no-startup-id i3-sensible-terminal --class drop-down --geometry 1920x400 -c "$HOME/.config/termite/config_t"
+bindsym $mod+Shift+Return [class="drop-down"] scratchpad show
 
 # kill focused window
 bindsym $mod+q kill
@@ -137,6 +151,15 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+bindsym $mod+Control+1 workspace $ws11
+bindsym $mod+Control+2 workspace $ws12
+bindsym $mod+Control+3 workspace $ws13
+bindsym $mod+Control+4 workspace $ws14
+bindsym $mod+Control+5 workspace $ws15
+bindsym $mod+Control+6 workspace $ws16
+bindsym $mod+Control+7 workspace $ws17
+bindsym $mod+Control+8 workspace $ws18
+bindsym $mod+Control+9 workspace $ws19
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -183,26 +206,31 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+exec --no-startup-id stalonetray --max-geometry 0x1 --window-type desktop --grow-gravity W --icon-gravity W -bg "#000000" -i 16 -s 20 --kludges force_icons_size
+for_window [class="stalonetray"] move position 0px 1060px, resize grow width 25 px, move to scratchpad
+bindsym $mod+apostrophe [class="stalonetray"] scratchpad show
+exec --no-startup-id admiral | lemonbar -f "Hack:size=10:style=Bold" -o 0 -f "Siji:size=10" -o -1 -B "#000" -F "#C4C4C4"
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3blocks
-        position top
-        font pango:Hack, Font Awesome Bold 10
-        colors {
-            # background #0c0c0f
-            # background #1d1e24
-            # statusline #ffffff
-            # separator #ffffff 
-                               #border bg      text
-            # focused_workspace  #b00b13 #b00b13 #efefef
-            # focused_workspace  #1d1e24 #1d1e24 #b00b13
-            focused_workspace  #000000 #000000 #b00b13
-            # active_workspace   #b00b13 #b00b13 #aaaaaa
-            inactive_workspace #000000 #000000 #888888
-            urgent_workspace   #c2ff00 #c2ff00 #444444
-        }
-}
+# bar {
+#         status_command i3blocks
+#         position top
+#         font pango:Hack, Font Awesome Bold 10
+#         colors {
+#             # background #0c0c0f
+#             # background #1d1e24
+#             # statusline #ffffff
+#             # separator #ffffff 
+#                                #border bg      text
+#             # focused_workspace  #b00b13 #b00b13 #efefef
+#             # focused_workspace  #1d1e24 #1d1e24 #b00b13
+#             focused_workspace  #000000 #000000 #b00b13
+#             # active_workspace   #b00b13 #b00b13 #aaaaaa
+#             inactive_workspace #000000 #000000 #888888
+#             urgent_workspace   #c2ff00 #c2ff00 #444444
+#         }
+# }
 
 #################
 # exec on keybind
@@ -261,8 +289,9 @@ exec --no-startup-id redshift-gtk
 
 exec unclutter --timeout 1 --jitter 10 &
 
-for_window [class="Keepassx2"] floating enable
+for_window [class="Keepassx2"] floating enable, move to scratchpad
 exec --no-startup-id keepassx2
+bindsym $mod+Shift+P [class="Keepassx2"] scratchpad show
 
 exec --no-startup-id i3-msg 'workspace $ws10; exec discord-canary'
 for_window [class="Skype"] sticky enable
@@ -291,7 +320,9 @@ focus_follows_mouse no
 # windows I like to have floated, for whatever reason
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Org.gnome.Characters"] floating enable
+for_window [class="dzen2"] floating enable
 for_window [class="^float_this$"] floating enable
+# for_window [class="stalonetray"] floating enable
 
 ############
 # appearance

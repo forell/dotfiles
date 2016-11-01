@@ -19,7 +19,7 @@ filetype plugin indent on
 set linebreak breakindent cursorline
 set expandtab ts=4 sw=4
 set number relativenumber
-set encoding=utf-8 shortmess=Ia termguicolors noswapfile hidden
+set encoding=utf-8 shortmess=Ia termguicolors noswapfile hidden confirm
 set backupdir=~/.vim/backup//
 
 " Slightly more intuitive splitting to match my wm
@@ -47,6 +47,10 @@ noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljz
 syntax on
 let g:ycm_global_ycm_extra_conf = '/home/forell/.vim/ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
+
+nmap <Leader>f :YcmCompleter FixIt<CR>
+nmap <Leader>t :YcmCompleter GetType<CR>
+
 " An arbitrary keybind because I couldn't get it to work with <C-Tab> in
 " terminal vim. Meh.
 let g:UltiSnipsExpandTrigger="<C-A>"
@@ -71,12 +75,12 @@ nnoremap <C-H> <C-W><C-H>
 inoremap { {}<C-[>i
 inoremap {<CR> {<CR>}<C-o>O
 inoremap {{ {
-inoremap " ""<C-[>i
-inoremap "" "
-inoremap ( ()<C-[>i
-inoremap (( (
-inoremap [ []<C-[>i
-inoremap [[ [
+" inoremap " ""<C-[>i
+" inoremap "" "
+" inoremap ( ()<C-[>i
+" inoremap (( (
+" inoremap [ []<C-[>i
+" inoremap [[ [
 inoremap „ „”<C-[>i
 
 " I use space as leader, so this prevents it from moving my cursor when I use it,

@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 
 red="\[\e[1;38;5;124m\]"
