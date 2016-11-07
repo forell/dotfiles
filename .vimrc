@@ -13,6 +13,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'mbbill/undotree'
+Plugin 'justinmk/vim-sneak'
 call vundle#end()
 
 filetype plugin indent on
@@ -20,7 +22,7 @@ set linebreak breakindent cursorline
 set expandtab ts=4 sw=4
 set number relativenumber
 set encoding=utf-8 shortmess=Ia termguicolors noswapfile hidden confirm
-set backupdir=~/.vim/backup//
+set undofile undodir=~/.vim/undo//
 
 " Slightly more intuitive splitting to match my wm
 set splitbelow splitright
@@ -75,12 +77,6 @@ nnoremap <C-H> <C-W><C-H>
 inoremap { {}<C-[>i
 inoremap {<CR> {<CR>}<C-o>O
 inoremap {{ {
-" inoremap " ""<C-[>i
-" inoremap "" "
-" inoremap ( ()<C-[>i
-" inoremap (( (
-" inoremap [ []<C-[>i
-" inoremap [[ [
 inoremap „ „”<C-[>i
 
 " I use space as leader, so this prevents it from moving my cursor when I use it,
