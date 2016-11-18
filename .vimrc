@@ -19,7 +19,7 @@ call vundle#end()
 
 filetype plugin indent on
 set linebreak breakindent cursorline
-set expandtab ts=4 sw=4
+set expandtab ts=4 sw=4 cino=g0
 set number relativenumber
 set encoding=utf-8 shortmess=Ia termguicolors noswapfile hidden confirm
 set undofile undodir=~/.vim/undo//
@@ -38,6 +38,9 @@ vmap <Leader>y "+y
 vmap <Leader>d "+d
 vmap <Leader>p "+p
 vmap <Leader>P "+P
+
+nmap <Leader>y "+y
+nmap <Leader>d "+d
 nmap <Leader>p "+p
 nmap <Leader>P "+P
 

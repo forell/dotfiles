@@ -2,6 +2,8 @@
 
 dots_dir="$HOME/.dotfiles"
 ln -sfv "$dots_dir/.profile" "$HOME"
+ln -sfv "$dots_dir/.zprofile" "$HOME"
+ln -sfv "$dots_dir/.zshrc" "$HOME"
 ln -sfv "$dots_dir/.bashrc" "$HOME"
 ln -sfv "$dots_dir/.i3" "$HOME"
 ln -sfv "$dots_dir/.i3blocks.conf" "$HOME"

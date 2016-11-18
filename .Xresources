@@ -13,7 +13,7 @@ urxvt*background: #202228
 *.color8:       #465457
 
 *.color1:       #b00b13
-*.color9:       #ff6c6c
+*.color9:       #b00b13
 
 *.color2:       #406e2c
 *.color10:      #a6e22e
