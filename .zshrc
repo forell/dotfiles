@@ -18,8 +18,10 @@ autoload -Uz colors && colors
 
 PS1=" %{$fg_bold[red]%}%n%{$reset_color%}@%{$fg_bold[red]%}%m %K{red}%{$fg_no_bold[red]%}[%{$fg_bold[white]%}%~%{$fg_no_bold[red]%}]%k%{$reset_color%} "
 RPS1=""
-PS2="> "
+PS2=" "
 RPS2=""
+norm="%{$fg_bold[white]%}%{$bg[red]%} N %{$reset_color%}"
+ins="%{$fg_bold[white]%}%{$bg[red]%} I %{$reset_color%}"
 
 export EDITOR=vim
 export VISUAL=vim
@@ -36,13 +38,13 @@ alias gdb="gdb -q"
 
 todo() {
     if [ $# -gt 0 ]; then
-        if [ "$1" == "-e" ]; then
-            vim /home/forell/todo/todo.txt
-        elif  [ "$1" == "-d" ]; then
-            cat /home/forell/todo/done.txt
+        if [ "$0" = "-e" ]; then
+            vim "/home/forell/todo/todo.txt"
+        elif  [ "$1" = "-d" ]; then
+            cat "/home/forell/todo/done.txt"
         fi
     else
-        cat /home/forell/todo/todo.txt
+        cat "/home/forell/todo/todo.txt"
     fi
 }
 
@@ -50,20 +52,17 @@ calc() {
     echo "$@" | bc -l | sed '/\./ s/\.\{0,1\}0\{1,\}$//'
 }
 
-cmus_screen() {
-    if cmus-remote -Q > /dev/null; then
-        screen -dr cmus
+cmus_tmux() {
+    if cmus-remote -Q > /dev/null 2>&1; then
+        tmux attach -d -t cmus
     else
-        screen -S cmus cmus
+        tmux new-session -s cmus cmus
     fi
 }
 
-alias cmus=cmus_screen
+alias cmus=cmus_tmux
 
 vman() {
-    # In case it's ever useful: prepend e.g. MANWIDTH=80 to set a fixed width.
-    # I find that with line numbers disabled in vim for &ft=="man", it works
-    # best to just let it automatically adjust.
     if man $@ > /dev/null; then
         man $@ | vim -c "set ft=man" -
     fi

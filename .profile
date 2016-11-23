@@ -11,8 +11,8 @@ if [ -e "$HOME/.dotfiles/vc-swap-esc-caps.map" ]; then
     sudo loadkeys /home/forell/.dotfiles/vc-swap-esc-caps.map
 fi
 
-if type "screen" > /dev/null && type "cmus" > /dev/null && ! cmus-remote -Q >/dev/null 2>&1; then
-    screen -S cmus -dm cmus
+if type "tmux" > /dev/null && type "cmus" > /dev/null && ! cmus-remote -Q >/dev/null 2>&1; then
+    tmux new-session -s cmus -d cmus
 fi
 
 if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then

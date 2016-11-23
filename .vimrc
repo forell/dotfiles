@@ -15,13 +15,14 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'mbbill/undotree'
 Plugin 'justinmk/vim-sneak'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 call vundle#end()
 
 filetype plugin indent on
 set linebreak breakindent cursorline
-set expandtab ts=4 sw=4 cino=g0
+set expandtab ts=4 sw=4 sts=4 cino=g0
 set number relativenumber
-set encoding=utf-8 shortmess=Ia termguicolors noswapfile hidden confirm
+set encoding=utf-8 shortmess=Ia noswapfile hidden confirm
 set undofile undodir=~/.vim/undo//
 
 " Slightly more intuitive splitting to match my wm
@@ -62,10 +63,10 @@ let g:UltiSnipsExpandTrigger="<C-A>"
 let g:UltiSnipsJumpForwardTrigger="<C-J>"
 let g:UltiSnipsJumpBackwardTrigger="<C-K>"
 
-augroup resCur
-  autocmd!
-  autocmd BufReadPost * call setpos(".", getpos("'\""))
-augroup END
+autocmd BufReadPost *
+            \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif 
 
 " autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -86,6 +87,9 @@ inoremap „ „”<C-[>i
 " which I found particularly annoying for some reason.
 noremap   <Space>  <NOP>
 
+:au FocusLost * :set norelativenumber
+:au FocusGained * :set relativenumber
+
 autocmd Filetype html,xml inoremap < <><C-[>i
 autocmd VimEnter * execute "normal \<C-L>"
 autocmd Filetype todo,man set norelativenumber
@@ -93,6 +97,12 @@ autocmd Filetype man set nonumber
 set keywordprg=:Man
 
 colorscheme molokai_red
+
+if $COLORTERM == 'truecolor' || $TERM == 'screen'
+    set t_Co=256 termguicolors
+endif
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * if &ft != "todo" && &ft != "man" | :set relativenumber | endif
