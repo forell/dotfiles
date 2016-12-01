@@ -16,7 +16,9 @@ bindkey -v
 autoload -Uz promptinit && promptinit
 autoload -Uz colors && colors
 
-PS1=" %{$fg_bold[red]%}%n%{$reset_color%}@%{$fg_bold[red]%}%m %K{red}%{$fg_no_bold[red]%}[%{$fg_bold[white]%}%~%{$fg_no_bold[red]%}]%k%{$reset_color%} "
+PS1=" %{$fg_bold[red]%}%n%{$reset_color%}@%{$fg_bold[red]%}%m \
+%K{red}%{$fg_no_bold[red]%}[%{$fg_bold[white]%}%~%{$fg_no_bold[red]%}]%k\
+%{$reset_color%} "
 RPS1=""
 PS2=" "
 RPS2=""

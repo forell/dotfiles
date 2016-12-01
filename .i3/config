@@ -75,8 +75,8 @@ bindsym $mod+Shift+Return [class="drop-down"] scratchpad show
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec $HOME/bin/i3/rofirun.sh
-bindsym $mod+Shift+d exec $HOME/bin/i3/rofirunall.sh
+bindsym $mod+d exec j4-dmenu-desktop
+bindsym $mod+Shift+d exec dmenu_run
 bindsym Mod1+Tab exec $HOME/bin/i3/rofiwindow.sh
 # dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -246,10 +246,10 @@ exec --no-startup-id admiral | lemonbar -f "Hack:size=10:style=Bold" -o 0 -f "Si
 
 #################
 # exec on keybind
-bindsym $mod+u exec --no-startup-id i3-sensible-terminal --class float_this -e "vim /home/forell/.cache/updates"
+bindsym $mod+u exec "rofi -dmenu -p '' < ~/.cache/updates"
 
-bindsym $mod+t exec --no-startup-id i3-sensible-terminal --class float_this -e "vim /home/forell/todo/todo.txt /home/forell/todo/done.txt"
-bindsym $mod+Shift+t exec --no-startup-id i3-sensible-terminal --class float_this -e "vim /home/forell/todo/done.txt /home/forell/todo/todo.txt"
+bindsym $mod+t exec "rofi -dmenu -p '' < ~/todo/todo.txt"
+bindsym $mod+Shift+t exec --no-startup-id i3-sensible-terminal --class float_this -e "vim /home/forell/todo/todo.txt /home/forell/todo/done.txt"
 
 #######
 # stuff
@@ -294,16 +294,13 @@ bindsym $mod+KP_Subtract exec --no-startup-id xkb-switch -n;exec --no-startup-id
 # autostart
 exec --no-startup-id xfce4-power-manager
 
-# exec --no-startup-id compton --backend glx --paint-on-overlay --glx-no-stencil --vsync opengl-swc --config $HOME/config/compton.conf -b &
-exec --no-startup-id compton --backend glx --paint-on-overlay --glx-no-stencil --vsync opengl-swc --blur-background -b &
+exec --no-startup-id compton --backend glx --paint-on-overlay --glx-no-stencil --vsync opengl-swc --config $HOME/.config/compton.conf -b &
 
 exec --no-startup-id redshift-gtk
 
 exec unclutter --timeout 1 --jitter 10 &
 
-for_window [class="Keepassx2"] floating enable, move to scratchpad
-exec --no-startup-id keepassx2
-bindsym $mod+Shift+P [class="Keepassx2"] scratchpad show
+bindsym $mod+Shift+P exec passmenu
 
 exec --no-startup-id i3-msg 'workspace $ws10; exec discord-canary'
 for_window [class="Skype"] sticky enable
@@ -328,6 +325,7 @@ focus_follows_mouse no
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Org.gnome.Characters"] floating enable
 for_window [class="dzen2"] floating enable
+for_window [class="Yad"] floating enable
 for_window [class="^float_this$"] floating enable
 # for_window [class="stalonetray"] floating enable
 

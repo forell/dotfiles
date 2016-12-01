@@ -1,7 +1,3 @@
-if [ -n "$BASH" ] && [ -r ~/.bashrc ]; then
-    . ~/.bashrc
-fi
-
 PATH=$PATH:/home/forell/bin/path
 export MANPATH=/home/forell/.local/share/man:
 
