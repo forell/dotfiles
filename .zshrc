@@ -13,6 +13,11 @@ SAVEHIST=1000
 setopt appendhistory autocd
 bindkey -v
 
+# Plugins
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
+
+
 autoload -Uz promptinit && promptinit
 autoload -Uz colors && colors
 
@@ -22,8 +27,8 @@ PS1=" %{$fg_bold[red]%}%n%{$reset_color%}@%{$fg_bold[red]%}%m \
 RPS1=""
 PS2=" "
 RPS2=""
-norm="%{$fg_bold[white]%}%{$bg[red]%} N %{$reset_color%}"
-ins="%{$fg_bold[white]%}%{$bg[red]%} I %{$reset_color%}"
+
+precmd () {print -Pn "\e]2;%n@%m [%~]\a"}
 
 export EDITOR=vim
 export VISUAL=vim

@@ -19,11 +19,10 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'rust-lang/rust.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'ap/vim-css-color'
-Plugin 'KabbAmine/vCoolor.vim'
 call vundle#end()
 
 filetype plugin indent on
-set nowrap sidescroll=5 cursorline
+set nowrap sidescroll=5 scrolloff=5 cursorline
 set listchars+=precedes:<,extends:>
 set expandtab tabstop=4 shiftwidth=4 softtabstop=4 cinoptions=g0
 set number relativenumber
@@ -73,8 +72,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_rust_checkers = ['rustc']
 
-let g:vcoolor_map = '<Leader>c'
-
 autocmd BufReadPost *
             \ if line("'\"") >= 1 && line("'\"") <= line("$") |
             \   exe "normal! g`\"" |
@@ -99,7 +96,6 @@ noremap   <Space>  <NOP>
 :au FocusGained * :set relativenumber
 
 autocmd Filetype html,xml inoremap < <><C-[>i
-autocmd VimEnter * execute "normal \<C-L>"
 autocmd Filetype cpp,c,rust set colorcolumn=81
 autocmd Filetype todo,man set norelativenumber
 autocmd Filetype man set nonumber
@@ -113,6 +109,12 @@ endif
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+" Sets cursor shape
+autocmd VimEnter * silent !printf "[1 q"
+let &t_EI = "\<Esc>[1 q"
+let &t_SI = "\<Esc>[3 q"
+autocmd VimLeave * silent !printf "[3 q"
+
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave *
             \ if &ft != "todo" && &ft != "man" | :set relativenumber | endif
@@ -120,6 +122,9 @@ autocmd InsertLeave *
 runtime! ftplugin/man.vim
 
 set laststatus=2
-let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'molokai'

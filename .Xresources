@@ -9,26 +9,26 @@ Xft.rgba:       none
 urxvt*foreground: #C4C4C4
 urxvt*background: #202228
 
-*.color0:       #202228
-*.color8:       #465457
+*color0:       #202228
+*color8:       #465457
 
-*.color1:       #b00b13
-*.color9:       #b00b13
+*color1:       #b00b13
+*color9:       #b00b13
 
-*.color2:       #406e2c
-*.color10:      #a6e22e
+*color2:       #406e2c
+*color10:      #a6e22e
 
-*.color3:       #e64904
-*.color11:      #fdba00
+*color3:       #e64904
+*color11:      #fdba00
 
-*.color4:       #0a3f6b
-*.color12:      #2e709a
+*color4:       #0a3f6b
+*color12:      #2e709a
 
-*.color5:       #b11f54
-*.color13:      #f92672
+*color5:       #b11f54
+*color13:      #f92672
 
-*.color6:       #448689
-*.color14:      #66d9ef
+*color6:       #448689
+*color14:      #66d9ef
 
-*.color7:       #707880
-*.color15:      #c4c4c4
+*color7:       #707880
+*color15:      #c4c4c4

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 dots_dir="$HOME/.dotfiles"
 ln -sfv "$dots_dir/.profile" "$HOME"
@@ -12,4 +12,5 @@ ln -sfv "$dots_dir/.pentadactylrc" "$HOME"
 ln -sfv "$dots_dir/.vimrc" "$HOME"
 ln -sfv "$dots_dir/.xinitrc" "$HOME"
 ln -sfv "$dots_dir/.Xresources" "$HOME"
-ln -sfv "$dots_dir/.screenrc" "$HOME"
+ln -sfv "$dots_dir/.Xmodmap" "$HOME"
+ln -sfv "$dots_dir/.tmux.conf" "$HOME"

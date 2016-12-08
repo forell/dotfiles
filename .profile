@@ -7,7 +7,7 @@ if [ -e "$HOME/.dotfiles/vc-swap-esc-caps.map" ]; then
     sudo loadkeys /home/forell/.dotfiles/vc-swap-esc-caps.map
 fi
 
-if type "tmux" > /dev/null && type "cmus" > /dev/null && ! cmus-remote -Q >/dev/null 2>&1; then
+if ! cmus-remote -Q >/dev/null 2>&1; then
     tmux new-session -s cmus -d cmus
 fi
 
