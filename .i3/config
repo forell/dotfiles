@@ -257,4 +257,4 @@ for_window [class="Skype"] sticky enable
 
 assign [class="firefox"] $ws2
 assign [class="discord"] $ws10
-assign [class="skype"] $ws10
+assign [class="Skype"] $ws10
