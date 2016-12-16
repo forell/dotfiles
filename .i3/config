@@ -255,6 +255,6 @@ bindsym $mod+apostrophe [class="stalonetray"] scratchpad show
 
 for_window [class="Skype"] sticky enable
 
-assign [class="firefox"] $ws2
+assign [class="Firefox"] $ws2
 assign [class="discord"] $ws10
 assign [class="Skype"] $ws10

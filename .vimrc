@@ -25,7 +25,7 @@ filetype plugin indent on
 set nowrap sidescroll=5 scrolloff=5 cursorline
 set listchars+=precedes:<,extends:>
 set expandtab tabstop=4 shiftwidth=4 softtabstop=4 cinoptions=g0
-set number relativenumber
+set number relativenumber wildmenu
 set encoding=utf-8 shortmess=Ia noswapfile hidden confirm
 set undofile undodir=~/.vim/undo//
 
@@ -64,7 +64,7 @@ let g:ycm_rust_src_path = '/usr/src/rust/src'
 nmap <Leader>f :YcmCompleter FixIt<CR>
 nmap <Leader>t :YcmCompleter GetType<CR>
 
-let g:UltiSnipsExpandTrigger="<C-A>"
+let g:UltiSnipsExpandTrigger="<C-J>"
 let g:UltiSnipsJumpForwardTrigger="<C-J>"
 let g:UltiSnipsJumpBackwardTrigger="<C-K>"
 
@@ -97,17 +97,18 @@ noremap   <Space>  <NOP>
 
 autocmd Filetype html,xml inoremap < <><C-[>i
 autocmd Filetype cpp,c,rust set colorcolumn=81
+autocmd Filetype gitcommit set colorcolumn=73 textwidth=72
 autocmd Filetype todo,man set norelativenumber
 autocmd Filetype man set nonumber
 set keywordprg=:Man
-
-colorscheme molokai_red
 
 if $COLORTERM == 'truecolor' || $TERM == 'screen'
     set t_Co=256 termguicolors
 endif
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+colorscheme forell
 
 " Sets cursor shape
 autocmd VimEnter * silent !printf "[1 q"
