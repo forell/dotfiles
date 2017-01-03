@@ -13,11 +13,6 @@ SAVEHIST=1000
 setopt appendhistory autocd
 bindkey -v
 
-# Plugins
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 autoload -Uz promptinit && promptinit
 autoload -Uz colors && colors
 
@@ -42,6 +37,7 @@ alias sussudo=sudo # I blame James
 alias clr="printf '\033\143'"
 alias strip_comments="gcc -fpreprocessed -dD -E -P"
 alias gdb="gdb -q"
+alias feh="feh --magick-timeout 3 --auto-rotate --auto-zoom"
 
 todo() {
     if [ $# -gt 0 ]; then
@@ -57,14 +53,6 @@ todo() {
 
 calc() {
     echo "$@" | bc -l | sed '/\./ s/\.\{0,1\}0\{1,\}$//'
-}
-
-cmus_tmux() {
-    if cmus-remote -Q > /dev/null 2>&1; then
-        tmux attach -d -t cmus
-    else
-        tmux new-session -s cmus cmus
-    fi
 }
 
 alias cmus=cmus_tmux

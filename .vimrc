@@ -3,6 +3,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'forell/vim-forell'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
@@ -23,6 +24,7 @@ call vundle#end()
 
 filetype plugin indent on
 set nowrap sidescroll=5 scrolloff=5 cursorline
+set foldcolumn=1 foldmethod=indent foldlevel=99
 set listchars+=precedes:<,extends:>
 set expandtab tabstop=4 shiftwidth=4 softtabstop=4 cinoptions=g0
 set number relativenumber wildmenu
@@ -96,10 +98,11 @@ noremap   <Space>  <NOP>
 :au FocusGained * :set relativenumber
 
 autocmd Filetype html,xml inoremap < <><C-[>i
-autocmd Filetype cpp,c,rust set colorcolumn=81
+autocmd Filetype cpp,c,python,rust set colorcolumn=81
 autocmd Filetype gitcommit set colorcolumn=73 textwidth=72
 autocmd Filetype todo,man set norelativenumber
 autocmd Filetype man set nonumber
+autocmd Filetype make set noexpandtab
 set keywordprg=:Man
 
 if $COLORTERM == 'truecolor' || $TERM == 'screen'
@@ -119,6 +122,10 @@ autocmd VimLeave * silent !printf "[3 q"
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave *
             \ if &ft != "todo" && &ft != "man" | :set relativenumber | endif
+
+set viewoptions-=options
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 
 runtime! ftplugin/man.vim
 

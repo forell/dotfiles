@@ -29,7 +29,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # hsetroot -solid "#151517"
-feh --bg-scale $HOME/pictures/wallpapers/fire.jpg
+$HOME/bin/fehbg
 
 source $HOME/.startup
 

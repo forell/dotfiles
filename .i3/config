@@ -4,7 +4,7 @@ set $mod Mod4
 
 #######
 # font
-font pango:Hack 10
+font pango:Hack Bold 10
 
 #################
 # workspace vars
@@ -43,7 +43,7 @@ set_from_resource $fg i3wm.color15 #c4c4c4
 set_from_resource $bg i3wm.color0 #202228
 set_from_resource $red i3wm.color1 #b00b13
 set_from_resource $hlight i3wm.color3 #e64904
-set $urgent #c2ff00
+set_from_resource $urgent i3wm.color11 #c2ff00
 set $exec_q exec --no-startup-id
 set $lock i3lock -c 000000
 
@@ -168,15 +168,15 @@ smart_borders on
 bindsym $mod+Return exec $term
 
 # "drop-down" style terminal
-for_window [class="drop-down"] floating enable, border none, move position 0px 20px, move to scratchpad
+for_window [class="drop-down"] floating enable, border none, move position 0px 24px, move to scratchpad
 $exec_q termite --class drop-down --geometry 1920x400 -c "$HOME/.config/termite/config_t"
 bindsym $mod+Shift+Return [class="drop-down"] scratchpad show
 
 ###########
 # launcher
-bindsym $mod+d exec j4-dmenu-desktop
-bindsym $mod+Shift+d exec dmenu_run
-bindsym Mod1+Tab exec $HOME/bin/i3/rofiwindow.sh
+bindsym $mod+d $exec_q j4-dmenu-desktop
+bindsym $mod+Shift+d $exec_q dmenu_run
+bindsym Mod1+Tab $exec_q $HOME/bin/i3/rofiwindow.sh
 
 
 
@@ -202,23 +202,23 @@ bindsym XF86AudioLowerVolume $exec_q pactl set-sink-volume @DEFAULT_SINK@ -2%
 bindsym XF86MonBrightnessUp $exec_q xbacklight + 8
 bindsym XF86MonBrightnessDown $exec_q xbacklight - 8
 
-#######
-# cmus
-bindsym $mod+p $exec_q cmus-remote -u
-bindsym $mod+bracketleft $exec_q cmus-remote -r
-bindsym $mod+bracketright $exec_q cmus-remote -n
-bindsym $mod+Shift+bracketleft $exec_q cmus-remote -v -5%
-bindsym $mod+Shift+bracketright $exec_q cmus-remote -v +5%
+########
+# music
+bindsym $mod+p $exec_q mpc toggle
+bindsym $mod+bracketleft $exec_q mpc prev
+bindsym $mod+bracketright $exec_q mpc next
+bindsym $mod+Shift+bracketleft $exec_q mpc volume -5
+bindsym $mod+Shift+bracketright $exec_q mpc volume +5
 
-mode "cmus" {
-    bindsym $mod+R $exec_q cmus-remote -C "toggle repeat_current"
-    bindsym $mod+minus $exec_q cmus-remote -v -5%
-    bindsym $mod+plus $exec_q cmus-remote -v +5%
-    bindsym $mod+equal $exec_q cmus-remote -v +5%
+mode "music" {
+    bindsym $mod+R $exec_q mpc single
+    bindsym $mod+minus $exec_q mpc volume -5
+    bindsym $mod+plus $exec_q mpc volume +5
+    bindsym $mod+equal $exec_q mpc volume +5
     bindsym Escape mode "default"
 }
 
-bindsym $mod+m mode "cmus"
+bindsym $mod+m mode "music"
 
 mode "mouse" {
     bindsym $mod+h exec xdotool mousemove_relative -- -20 0
@@ -245,16 +245,26 @@ bindsym Control+Shift+Print $exec_q "maim --format png -b 3 -c 0.69,0.074,0.043 
 ##################
 # window specific
 for_window [class="Pavucontrol"] floating enable
-for_window [class="Org.gnome.Characters"] floating enable
-for_window [class="dzen2"] floating enable
 for_window [class="Yad"] floating enable
-for_window [class="^float_this$"] floating enable
-
-for_window [class="stalonetray"] move position 0px 1060px, resize grow width 25 px, move to scratchpad
-bindsym $mod+apostrophe [class="stalonetray"] scratchpad show
+for_window [class="float_this"] floating enable
 
 for_window [class="Skype"] sticky enable
 
 assign [class="Firefox"] $ws2
 assign [class="discord"] $ws10
 assign [class="Skype"] $ws10
+
+########
+# i3bar
+$exec_q lemonbar -p -g x3 -b -B "#b00b13"
+bar {
+    status_command          i3blocks
+    workspace_buttons       no
+    binding_mode_indicator  no
+    separator_symbol        "::"
+    colors {
+        background  #000000
+        statusline  #c4c4c4
+        separator   #465457
+    }
+}

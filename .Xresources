@@ -6,10 +6,12 @@ Xft.hintstyle:  hintnone
 Xft.lcdfilter:  lcdnone
 Xft.rgba:       none
 
+dzen2.font: Hack:style=bold:size=10
+
 urxvt*foreground: #C4C4C4
 urxvt*background: #151517
 
-*color0:       #151517
+*color0:       #101112
 *color8:       #465457
 
 *color1:       #b00b13

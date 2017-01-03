@@ -7,8 +7,8 @@ if [ -e "$HOME/.dotfiles/vc-swap-esc-caps.map" ]; then
     sudo loadkeys /home/forell/.dotfiles/vc-swap-esc-caps.map
 fi
 
-if ! cmus-remote -Q >/dev/null 2>&1; then
-    tmux new-session -s cmus -d cmus
+if [ ! -s ~/.config/mpd/pid ]; then
+    mpd
 fi
 
 if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
