@@ -27,15 +27,13 @@ set nowrap sidescroll=5 scrolloff=5 cursorline
 set foldcolumn=1 foldmethod=indent foldlevel=99
 set listchars+=precedes:<,extends:>
 set expandtab tabstop=4 shiftwidth=4 softtabstop=4 cinoptions=g0
-set number relativenumber wildmenu
+set number relativenumber wildmenu showcmd
 set encoding=utf-8 shortmess=Ia noswapfile hidden confirm
 set undofile undodir=~/.vim/undo//
+set ttimeoutlen=100
 
 " Slightly more intuitive splitting to match my wm
 set splitbelow splitright
-
-" Removes the annoying O delay and also prevents normal arrow key usage
-set noesckeys
 
 let mapleader="\<Space>"
 let maplocalleader="\\"
@@ -134,5 +132,6 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'molokai'

@@ -16,8 +16,13 @@ bindkey -v
 autoload -Uz promptinit && promptinit
 autoload -Uz colors && colors
 
-PS1=" %{$fg_bold[red]%}%n%{$reset_color%}@%{$fg_bold[red]%}%m \
-%K{red}%{$fg_no_bold[red]%}[%{$fg_bold[white]%}%~%{$fg_no_bold[red]%}]%k\
+red="%{[1;38;5;124m%}"
+redb="%{[0;48;5;124m%}"
+redall="%{[0;38;5;124;48;5;124m%}"
+
+# name@host [pwd]
+PS1=" ${red}%n%f@${red}%m \
+${redall}[${redb}%B%~%b${redall}]\
 %{$reset_color%} "
 RPS1=""
 PS2=" "
@@ -54,8 +59,6 @@ todo() {
 calc() {
     echo "$@" | bc -l | sed '/\./ s/\.\{0,1\}0\{1,\}$//'
 }
-
-alias cmus=cmus_tmux
 
 vman() {
     if man $@ > /dev/null; then

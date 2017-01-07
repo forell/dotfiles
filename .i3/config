@@ -261,7 +261,9 @@ bar {
     status_command          i3blocks
     workspace_buttons       no
     binding_mode_indicator  no
+    tray_padding            3
     separator_symbol        "::"
+    height 21
     colors {
         background  #000000
         statusline  #c4c4c4
