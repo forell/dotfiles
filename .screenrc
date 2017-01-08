@@ -1,5 +1,0 @@
-altscreen on
-escape ^Jj
-startup_message off
-term screen-256color
-vbell off
