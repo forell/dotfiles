@@ -225,6 +225,9 @@ mode "mouse" {
     bindsym $mod+j exec xdotool mousemove_relative 0 20
     bindsym $mod+k exec xdotool mousemove_relative 0 -20
     bindsym $mod+l exec xdotool mousemove_relative 20 0
+    bindsym $mod+i exec xdotool click 1
+    bindsym $mod+o exec xdotool click 2
+    bindsym $mod+m exec xdotool click 3
     bindsym Escape exec unclutter --timeout 1 --jitter 10 &; mode "default"
 }
 
