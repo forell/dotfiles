@@ -187,7 +187,9 @@ bindsym $mod+u exec "rofi -dmenu -p '' < ~/.cache/updates"
 bindsym $mod+t exec "rofi -dmenu -p '' < ~/todo/todo.txt"
 bindsym $mod+Shift+t $exec_q termite --class float_this -e "vim /home/forell/todo/todo.txt /home/forell/todo/done.txt"
 
-bindsym $mod+Shift+P exec passmenu
+bindsym --release $mod+c $exec_q "$HOME/bin/i3/cal"
+
+bindsym $mod+Shift+P $exec_q passmenu
 
 #######
 # lock
@@ -221,17 +223,17 @@ mode "music" {
 bindsym $mod+m mode "music"
 
 mode "mouse" {
-    bindsym $mod+h exec xdotool mousemove_relative -- -20 0
-    bindsym $mod+j exec xdotool mousemove_relative 0 20
-    bindsym $mod+k exec xdotool mousemove_relative 0 -20
-    bindsym $mod+l exec xdotool mousemove_relative 20 0
-    bindsym $mod+i exec xdotool click 1
-    bindsym $mod+o exec xdotool click 2
-    bindsym $mod+m exec xdotool click 3
-    bindsym Escape exec unclutter --timeout 1 --jitter 10 &; mode "default"
+    bindsym $mod+h $exec_q xdotool mousemove_relative -- -20 0
+    bindsym $mod+j $exec_q xdotool mousemove_relative 0 20
+    bindsym $mod+k $exec_q xdotool mousemove_relative 0 -20
+    bindsym $mod+l $exec_q xdotool mousemove_relative 20 0
+    bindsym $mod+i $exec_q xdotool click 1
+    bindsym $mod+o $exec_q xdotool click 2
+    bindsym $mod+p $exec_q xdotool click 3
+    bindsym Escape $exec_q unclutter --timeout 1 --jitter 10 &; mode "default"
 }
 
-bindsym $mod+Shift+M exec pkill unclutter; mode "mouse"
+bindsym $mod+Shift+M $exec_q pkill unclutter; mode "mouse"
 
 ##################
 # keyboard layout
