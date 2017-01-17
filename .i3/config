@@ -168,7 +168,7 @@ smart_borders on
 bindsym $mod+Return exec $term
 
 # "drop-down" style terminal
-for_window [class="drop-down"] floating enable, border none, move position 0px 24px, move to scratchpad
+for_window [class="drop-down"] floating enable, sticky enable, border none, move position 0px 24px, move to scratchpad
 $exec_q termite --class drop-down --geometry 1920x400 -c "$HOME/.config/termite/config_t"
 bindsym $mod+Shift+Return [class="drop-down"] scratchpad show
 
