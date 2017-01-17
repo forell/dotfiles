@@ -237,7 +237,7 @@ bindsym $mod+Shift+M $exec_q pkill unclutter; mode "mouse"
 
 ##################
 # keyboard layout
-bindsym $mod+KP_Subtract $exec_q xkb-switch -n
+bindsym $mod+KP_Subtract $exec_q xkb-switch -n && pkill -RTMIN+11 i3blocks
 
 #############
 # screenshot
