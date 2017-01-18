@@ -59,11 +59,3 @@ todo() {
 calc() {
     echo "$@" | bc -l | sed '/\./ s/\.\{0,1\}0\{1,\}$//'
 }
-
-vman() {
-    if man $@ > /dev/null; then
-        man $@ | vim -c "set ft=man" -
-    fi
-}
-
-alias man=vman
