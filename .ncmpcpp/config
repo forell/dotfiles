@@ -111,7 +111,7 @@ alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
 #
 alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
 #
-now_playing_prefix = $b
+now_playing_prefix = $2❯ $b
 #
 now_playing_suffix = $/b
 #
@@ -176,7 +176,7 @@ browser_sort_format = {%a - }{%t}|{%f} {(%l)}
 ##   not available.
 ##
 #
-song_columns_list_format = (20)[white]{a} (6f)[red]{NE} (50)[white]{t|f:Title} (20)[white]{b} (7f)[red]{l}
+song_columns_list_format = (2f)[]{: }(20)[white]{a} (6f)[red]{NE} (50)[white]{t|f:Title} (20)[white]{b} (7f)[red]{l}
 #
 ##### various settings #####
 #
