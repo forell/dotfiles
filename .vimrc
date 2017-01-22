@@ -119,7 +119,7 @@ autocmd VimLeave * silent !printf "[3 q"
 
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave *
-            \ if &ft != "todo" && &ft != "man" | :set relativenumber | endif
+            \ if &ft != "todo" | :set relativenumber | endif
 
 set viewoptions-=options
 autocmd BufWinLeave *.* mkview

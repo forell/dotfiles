@@ -176,15 +176,15 @@ bindsym $mod+Shift+Return [class="drop-down"] scratchpad show
 # launcher
 bindsym $mod+d $exec_q j4-dmenu-desktop
 bindsym $mod+Shift+d $exec_q dmenu_run
-bindsym Mod1+Tab $exec_q $HOME/bin/i3/rofiwindow.sh
+bindsym --release Mod1+Tab $exec_q $HOME/bin/i3/rofiwindow.sh
 
 
 
 ################
 # misc keybinds
-bindsym $mod+u exec "rofi -dmenu -p '' < ~/.cache/updates"
+bindsym --release $mod+u exec "rofi -dmenu -p '' < ~/.cache/updates"
 
-bindsym $mod+t exec "rofi -dmenu -p '' < ~/todo/todo.txt"
+bindsym --release $mod+t exec "rofi -dmenu -p '' < ~/todo/todo.txt"
 bindsym $mod+Shift+t $exec_q termite --class float_this -e "vim /home/forell/todo/todo.txt /home/forell/todo/done.txt"
 
 bindsym --release $mod+c $exec_q "$HOME/bin/i3/cal"
@@ -250,7 +250,6 @@ bindsym Control+Shift+Print $exec_q "maim --format png -b 3 -c 0.69,0.074,0.043 
 ##################
 # window specific
 for_window [class="Pavucontrol"] floating enable
-for_window [class="Yad"] floating enable
 for_window [class="float_this"] floating enable
 
 for_window [class="Skype"] sticky enable

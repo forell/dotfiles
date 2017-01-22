@@ -34,4 +34,4 @@ $HOME/bin/fehbg
 source $HOME/.startup
 
 export QT_STYLE_OVERRIDE='gtk2'
-exec i3
+exec i3 --shmlog-size=26214400
