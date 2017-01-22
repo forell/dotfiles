@@ -174,8 +174,8 @@ bindsym $mod+Shift+Return [class="drop-down"] scratchpad show
 
 ###########
 # launcher
-bindsym $mod+d $exec_q j4-dmenu-desktop
-bindsym $mod+Shift+d $exec_q dmenu_run
+bindsym $mod+d $exec_q j4-dmenu-desktop --no-generic --usage-log=$HOME/.cache/dmenu_recent
+bindsym $mod+Shift+d $exec_q dmenu-run-recent
 bindsym --release Mod1+Tab $exec_q $HOME/bin/i3/rofiwindow.sh
 
 
@@ -269,7 +269,7 @@ bar {
     separator_symbol        "::"
     height 21
     colors {
-        background  #000000
+        background  #101112
         statusline  #c4c4c4
         separator   #465457
     }
