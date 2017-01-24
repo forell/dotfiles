@@ -414,7 +414,7 @@ color2 = yellow
 #
 main_window_highlight_color = white
 #
-#progressbar_color = black
+progressbar_color = 8
 #
 progressbar_elapsed_color = red
 #
