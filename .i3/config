@@ -4,7 +4,7 @@ set $mod Mod4
 
 #######
 # font
-font pango:Hack Bold 10
+font pango:Hack Bold 0
 
 #################
 # workspace vars
@@ -155,7 +155,7 @@ client.focused_inactive $bg     $bg     $fg     $bg
 client.unfocused        $bg     $bg     $fg     $bg
 client.urgent           $urgent $urgent $fg     $urgent
 
-new_window pixel 3
+new_window normal 0
 focus_follows_mouse no
 
 gaps inner 10
@@ -182,7 +182,7 @@ bindsym --release Mod1+Tab $exec_q $HOME/bin/i3/rofiwindow.sh
 
 ################
 # misc keybinds
-bindsym --release $mod+u exec "rofi -dmenu -p '' < ~/.cache/updates"
+bindsym --release $mod+u exec "$HOME/bin/i3/updates_dzen"
 
 bindsym --release $mod+t exec "rofi -dmenu -p '' < ~/todo/todo.txt"
 bindsym $mod+Shift+t $exec_q termite --class float_this -e "vim /home/forell/todo/todo.txt /home/forell/todo/done.txt"
@@ -235,6 +235,10 @@ mode "mouse" {
 
 bindsym $mod+Shift+M $exec_q pkill unclutter; mode "mouse"
 
+mode "updates" {
+    bindsym Escape mode "default"
+}
+
 ##################
 # keyboard layout
 bindsym $mod+KP_Subtract $exec_q xkb-switch -n && pkill -RTMIN+11 i3blocks
@@ -262,6 +266,7 @@ assign [class="Skype"] $ws10
 # i3bar
 $exec_q lemonbar -p -g x3 -b -B "#b00b13"
 bar {
+    font pango:Hack Bold 10
     status_command          i3blocks
     workspace_buttons       no
     binding_mode_indicator  no
@@ -274,3 +279,4 @@ bar {
         separator   #465457
     }
 }
+
