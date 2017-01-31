@@ -156,6 +156,7 @@ client.unfocused        $bg     $bg     $fg     $bg
 client.urgent           $urgent $urgent $fg     $urgent
 
 new_window normal 0
+new_float normal 0
 focus_follows_mouse no
 
 gaps inner 10
