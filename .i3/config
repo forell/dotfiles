@@ -161,7 +161,7 @@ focus_follows_mouse no
 
 gaps inner 20
 gaps outer 0
-smart_gaps on
+# smart_gaps on
 smart_borders on
 
 ###########
@@ -169,7 +169,7 @@ smart_borders on
 bindsym $mod+Return exec $term
 
 # "drop-down" style terminal
-for_window [class="drop-down"] floating enable, sticky enable, border none, move position 0px 24px, move to scratchpad
+for_window [class="drop-down"] floating enable, sticky enable, border none, move position 0px 30px, move to scratchpad
 $exec_q termite --class drop-down --geometry 1920x400 -c "$HOME/.config/termite/config_t"
 bindsym $mod+Shift+Return [class="drop-down"] scratchpad show
 
@@ -262,22 +262,3 @@ for_window [class="Skype"] sticky enable
 assign [class="Firefox"] $ws2
 assign [class="discord"] $ws10
 assign [class="Skype"] $ws10
-
-########
-# i3bar
-$exec_q lemonbar -p -g x3 -b -B "#b00b13"
-bar {
-    font pango:Hack Bold 10
-    status_command          i3blocks
-    workspace_buttons       no
-    binding_mode_indicator  no
-    tray_padding            3
-    separator_symbol        "::"
-    height 21
-    colors {
-        background  #101112
-        statusline  #c4c4c4
-        separator   #465457
-    }
-}
-
