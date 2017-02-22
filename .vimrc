@@ -84,6 +84,9 @@ autocmd bufenter * if (winnr("$") == 1
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+nnoremap <left> :bp<CR>
+nnoremap <right> :bn<CR>
+
 " Automatically close braces
 inoremap { {}<C-[>i
 inoremap {<CR> {<CR>}<C-o>O
@@ -132,6 +135,6 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'molokai'
