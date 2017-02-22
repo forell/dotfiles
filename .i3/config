@@ -183,9 +183,9 @@ bindsym --release Mod1+Tab $exec_q $HOME/bin/i3/rofiwindow.sh
 
 ################
 # misc keybinds
-bindsym --release $mod+u exec "$HOME/bin/i3/updates_dzen"
+bindsym --release $mod+u $exec_q "$HOME/bin/i3/updates_dzen"
 
-bindsym --release $mod+t exec "rofi -dmenu -p '' < ~/todo/todo.txt"
+bindsym --release $mod+t $exec_q "rofi -dmenu -p '' < ~/todo/todo.txt"
 bindsym $mod+Shift+t $exec_q termite --class float_this -e "vim /home/forell/todo/todo.txt /home/forell/todo/done.txt"
 
 bindsym --release $mod+c $exec_q "$HOME/bin/i3/cal"
@@ -194,8 +194,8 @@ bindsym $mod+Shift+P $exec_q passmenu
 
 #######
 # lock
-bindsym $mod+Control+L exec $lock
-bindsym $mod+semicolon exec $HOME/bin/i3/power_menu
+bindsym $mod+Control+L $exec_q $lock
+bindsym $mod+semicolon $exec_q $HOME/bin/i3/power_menu
 
 ############
 # media keys
