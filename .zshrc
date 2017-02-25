@@ -17,6 +17,7 @@ autoload -Uz promptinit && promptinit
 autoload -Uz colors && colors
 
 red="%{[1;38;5;124m%}"
+gray="%{[1;38;5;239m%}"
 redb="%{[0;48;5;124m%}"
 redall="%{[0;38;5;124;48;5;124m%}"
 
@@ -24,8 +25,9 @@ redall="%{[0;38;5;124;48;5;124m%}"
 PS1=" ${red}%n%f@${red}%m \
 ${redall}[${redb}%B%~%b${redall}]\
 %{$reset_color%} "
+
 RPS1=""
-PS2=" "
+PS2="${gray}❱%{$reset_color%} "
 RPS2=""
 
 precmd () {print -Pn "\e]2;%n@%m [%~]\a"}
