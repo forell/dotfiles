@@ -96,6 +96,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+Control+$left       resize shrink width 2 px or 2 ppt
+bindsym $mod+Control+$down       resize grow height 2 px or 2 ppt
+bindsym $mod+Control+$up         resize shrink height 2 px or 2 ppt
+bindsym $mod+Control+$right      resize grow width 2 px or 2 ppt
+
 #####################
 # workspace controls
 workspace_auto_back_and_forth yes
@@ -147,6 +152,10 @@ bindsym $mod+Control+Shift+0 move container to workspace $ws20
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
+######
+# bar
+$exec_q $HOME/bin/i3/run_bar.sh
+
 #############
 # appearance
 #                       border  backgr  text    indicator
@@ -194,7 +203,6 @@ bindsym $mod+Shift+P $exec_q passmenu
 
 #######
 # lock
-bindsym $mod+Control+L $exec_q $lock
 bindsym $mod+semicolon $exec_q $HOME/bin/i3/power_menu
 
 ############
@@ -246,11 +254,10 @@ bindsym $mod+KP_Subtract $exec_q xkb-switch -n && pkill -RTMIN+11 i3blocks
 
 #############
 # screenshot
-bindsym Print $exec_q "maim --format png $HOME/pictures/screenshots/$(date +%F_%H-%M-%S).png"
-bindsym Shift+Print $exec_q "maim --format png -b 3 -c 0.69,0.074,0.043 -s $HOME/pictures/screenshots/$(date +%F_%H-%M-%S).png"
-bindsym Mod1+Sys_Req $exec_q "maim --format png -i $(xdotool getactivewindow) $HOME/pictures/screenshots/$(date +%F_%H-%M-%S).png"
-bindsym Control+Print $exec_q "maim --format png /dev/stdout | xclip -t image/png -selection clipboard"
-bindsym Control+Shift+Print $exec_q "maim --format png -b 3 -c 0.69,0.074,0.043 -s /dev/stdout | xclip -t image/png -selection clipboard"
+bindsym Print $exec_q "maim -m 10 -u $HOME/pictures/screenshots/$(date +%F_%H-%M-%S).png"
+bindsym --release Shift+Print $exec_q "maim -b 6 -c 0.69,0.074,0.043 -s -m 10 -u $HOME/pictures/screenshots/$(date +%F_%H-%M-%S).png"
+bindsym Control+Print $exec_q "maim -m 10 /dev/stdout -u | xclip -t image/png -selection clipboard"
+bindsym --release Control+Shift+Print $exec_q "maim -b 6 -c 0.69,0.074,0.043 -s -m 10 -u /dev/stdout | xclip -t image/png -selection clipboard"
 
 ##################
 # window specific
