@@ -6,7 +6,12 @@ highlight HintElem background-color:#b00b13 !important; color:#fefefe !important
 set cdpath=''
 set defsearch=duckduckgo
 set hintkeys=asdfghjkl;
+set! browser.tabs.closeWindowWithLastTab=false
 autocmd LocationChange 'https://docs.google.com/*' :normal! <C-z>
 autocmd LocationChange 'https://codingame.com/ide/*' :normal! <C-z>
+map -b j 6j
+map -b k 6k
+map -b h 6h
+map -b l 6l
 
 " vim: set ft=pentadactyl:
