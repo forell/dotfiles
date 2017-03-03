@@ -1,0 +1,37 @@
+[options]
+font = Hack Regular 11
+cursor_shape = underline
+mouse_autohide = true
+fullscreen = false
+
+[colors]
+foreground = #c4c4c4
+background = #151517
+
+color0  = #151517
+color8  = #465457
+
+color1  = #b00b13
+color9  = #f3313a
+
+color2  = #5e6d36
+color10 = #89a355
+
+color3  = #e64904
+color11 = #fdba00
+
+color4  = #0a3f6b
+color12 = #2e709a
+
+color5  = #b11f54
+color13 = #f92672
+
+color6  = #7587a6
+color14 = #afc4db
+
+color7  = #707880
+color15 = #c4c4c4
+
+color124 = #b00b13
+
+# vim: ft=cfg

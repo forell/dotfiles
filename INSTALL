@@ -1,6 +1,11 @@
 #!/bin/sh
-
 dots_dir="$HOME/.dotfiles"
+config_dir="$HOME/.config"
+
+if [ ! -d "$config_dir" ]; then
+    mkdir $config_dir
+fi
+
 ln -sfv "$dots_dir/.profile" "$HOME"
 ln -sfv "$dots_dir/.zprofile" "$HOME"
 ln -sfv "$dots_dir/.zshrc" "$HOME"
@@ -15,3 +20,4 @@ ln -sfv "$dots_dir/.Xresources" "$HOME"
 ln -sfv "$dots_dir/.Xmodmap" "$HOME"
 ln -sfv "$dots_dir/.tmux.conf" "$HOME"
 ln -sfv "$dots_dir/.ncmpcpp" "$HOME"
+ln -sfv "$dots_dir/termite" "$config_dir"
