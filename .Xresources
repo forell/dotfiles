@@ -19,8 +19,8 @@ urxvt*background: #151517
 *color1:       #b00b13
 *color9:       #f3313a
 
-*color2:       #406e2c
-*color10:      #a6e22e
+*color2:       #5e6d36
+*color10:      #89a355
 
 *color3:       #e64904
 *color11:      #fdba00
@@ -31,8 +31,8 @@ urxvt*background: #151517
 *color5:       #b11f54
 *color13:      #f92672
 
-*color6:       #448689
-*color14:      #66d9ef
+*color6:       #7587a6
+*color14:      #afc4db
 
 *color7:       #707880
 *color15:      #c4c4c4
