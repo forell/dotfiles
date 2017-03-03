@@ -2,6 +2,7 @@
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' list-colors "di=1;38;5;241:ex=1;33"
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=** r:|=**'
 zstyle :compinstall filename '/home/forell/.zshrc'
 autoload -Uz compinit
@@ -37,6 +38,7 @@ export VISUAL=vim
 
 alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
+alias diff='diff --color=auto'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias svim=sudoedit
