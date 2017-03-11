@@ -179,7 +179,7 @@ bindsym $mod+Return exec $term
 
 # "drop-down" style terminal
 for_window [class="drop-down"] floating enable, sticky enable, border none, move position 0px 30px, move to scratchpad
-$exec_q termite --class drop-down --geometry 1920x400 -c "$HOME/.config/termite/config_t"
+$exec_q termite --class drop-down --geometry 1920x400
 bindsym $mod+Shift+Return [class="drop-down"] scratchpad show
 
 ###########
