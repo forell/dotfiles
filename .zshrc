@@ -46,7 +46,7 @@ alias sussudo=sudo # I blame James
 alias clr="printf '\033\143'"
 alias strip_comments="gcc -fpreprocessed -dD -E -P"
 alias gdb="gdb -q"
-alias feh="feh --magick-timeout 3 --auto-rotate --auto-zoom"
+alias feh="feh --magick-timeout 3 --auto-rotate --auto-zoom -."
 
 todo() {
     if [ $# -gt 0 ]; then
