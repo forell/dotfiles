@@ -11,6 +11,10 @@ if [ ! -s ~/.config/mpd/pid ]; then
     mpd &
 fi
 
+if ! pgrep ssh-agent > /dev/null; then
+    eval "$(ssh-agent -s)"
+fi
+
 if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
     startx
 fi
