@@ -16,20 +16,20 @@ urxvt*background: #151517
 *color0:       #101112
 *color8:       #465457
 
-*color1:       #b00b13
-*color9:       #f3313a
+*color1:       #992525
+*color9:       #ca4d4d
 
 *color2:       #5e6d36
 *color10:      #89a355
 
-*color3:       #e64904
-*color11:      #fdba00
+*color3:       #d27049
+*color11:      #e5ab57
 
 *color4:       #0a3f6b
 *color12:      #2e709a
 
-*color5:       #b11f54
-*color13:      #f92672
+*color5:       #88537b
+*color13:      #ba8baf
 
 *color6:       #7587a6
 *color14:      #afc4db
