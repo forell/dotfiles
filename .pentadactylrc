@@ -2,13 +2,27 @@
 
 loadplugins '\.(js|penta)$'
 group user
-highlight HintElem background-color:#b00b13 !important; color:#fefefe !important
+
+" Appearance
+highlight StatusLineNormal background-color: #101112 !important
+highlight StatusLineSecure background-color: #101112 !important
+highlight StatusLineExtended background-color: #101112 !important
+highlight StatusLineBroken background-color: #101112 !important
+highlight StatusWarningMsg color: inherit !important
+
+highlight Normal color: #c4c4c4 !important; background-color: #151517 !important
+highlight NonText color: transparent !important
+highlight CompTitle color: #c4c4c4 !important; background-color: #992525 !important; font-weight: bold !important
+highlight CompTitleSep color: #992525 !important
+
+highlight Hint background-color: #992525 !important; font-weight: bold !important; padding-left: 4px !important; padding-right: 4px !important
+highlight HintElem background-color: transparent !important
+highlight CompItem[selected] background: #992525 !important
+
 set cdpath=''
 set defsearch=duckduckgo
 set hintkeys=asdfghjkl;
 set! browser.tabs.closeWindowWithLastTab=false
-autocmd LocationChange 'https://docs.google.com/*' :normal! <C-z>
-autocmd LocationChange 'https://codingame.com/ide/*' :normal! <C-z>
 map -b j 6j
 map -b k 6k
 map -b h 6h
