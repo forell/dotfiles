@@ -40,12 +40,12 @@ set $right l
 # misc vars
 set $term termite
 set_from_resource $fg i3wm.color15 #c4c4c4
-set_from_resource $bg i3wm.color0 #202228
-set_from_resource $red i3wm.color1 #b00b13
-set_from_resource $hlight i3wm.color3 #e64904
-set_from_resource $urgent i3wm.color11 #c2ff00
+set_from_resource $bg i3wm.color0 #151517
+set_from_resource $red i3wm.color1 #992525
+set_from_resource $hlight i3wm.color3 #d27049
+set_from_resource $urgent i3wm.color11 #e5ab57
 set $exec_q exec --no-startup-id
-set $lock i3lock -c 000000
+set $lock $HOME/bin/i3/lock.sh
 
 ##################
 # window controls
@@ -262,6 +262,7 @@ bindsym --release Control+Shift+Print $exec_q "maim -b 6 -c 0.69,0.074,0.043 -s 
 ##################
 # window specific
 for_window [class="Pavucontrol"] floating enable
+for_window [class="gnuplot_qt"] floating enable
 for_window [class="float_this"] floating enable
 
 for_window [class="Skype"] sticky enable
