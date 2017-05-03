@@ -36,6 +36,7 @@ precmd () {print -Pn "\e]2;%n@%m [%~]\a"}
 export EDITOR=vim
 export VISUAL=vim
 
+alias sudo="sudo "
 alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
