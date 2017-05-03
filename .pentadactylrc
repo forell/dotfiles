@@ -15,10 +15,12 @@ highlight NonText color: transparent !important
 highlight CompTitle color: #c4c4c4 !important; background-color: #992525 !important; font-weight: bold !important
 highlight CompTitleSep color: #992525 !important
 
-highlight Hint background-color: #992525 !important; font-weight: bold !important; padding-left: 4px !important; padding-right: 4px !important
-highlight HintElem background-color: transparent !important
+highlight Hint color: #c4c4c4 !important; background-color: #992525 !important; font-weight: bold !important; padding-left: 4px !important; padding-right: 4px !important
+highlight HintElem background-color: initial !important
+highlight HintActive background-color: initial !important
 highlight CompItem[selected] background: #992525 !important
 
+set guioptions+=n
 set cdpath=''
 set defsearch=duckduckgo
 set hintkeys=asdfghjkl;
