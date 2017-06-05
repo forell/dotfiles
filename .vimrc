@@ -162,3 +162,4 @@ runtime! ftplugin/man.vim
     let g:airline#extensions#syntastic#enabled = 0
     let g:airline#extensions#whitespace#enabled = 0
     let g:airline_section_y = ''
+    let g:airline_section_z = airline#section#create(['%l/%L %c'])
