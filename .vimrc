@@ -45,7 +45,7 @@ set nowrap sidescroll=5 scrolloff=5
 set foldcolumn=1 foldmethod=indent foldlevel=99
 
 " Indentation
-set expandtab tabstop=4 shiftwidth=4 softtabstop=4 cinoptions=g0
+set expandtab tabstop=4 shiftwidth=4 softtabstop=4 cinoptions=g0,j1
 
 " Files created by vim
 set undofile undodir=~/.vim/undo// noswapfile
@@ -66,15 +66,15 @@ let maplocalleader="\\"
     noremap   <Space>  <NOP>
 
 " Less awkward copy and paste from/to X
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-vmap <Leader>p "+p
-vmap <Leader>P "+P
+vnoremap <Leader>y "+y
+vnoremap <Leader>d "+d
+vnoremap <Leader>p "+p
+vnoremap <Leader>P "+P
 
-nmap <Leader>y "+y
-nmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
+nnoremap <Leader>y "+y
+nnoremap <Leader>d "+d
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
 
 " Edit a single file in two (simultaneously scrolling) panes
 noremap <silent> <Leader>vs
@@ -135,8 +135,8 @@ runtime! ftplugin/man.vim
     let g:ycm_confirm_extra_conf = 0
     let g:ycm_rust_src_path = '/usr/src/rust/src'
 
-    nmap <Leader>f :YcmCompleter FixIt<CR>
-    nmap <Leader>t :YcmCompleter GetType<CR>
+    nnoremap <Leader>f :YcmCompleter FixIt<CR>
+    nnoremap <Leader>t :YcmCompleter GetType<CR>
 
     " UltiSnips
     let g:UltiSnipsExpandTrigger="<C-J>"
@@ -144,16 +144,16 @@ runtime! ftplugin/man.vim
     let g:UltiSnipsJumpBackwardTrigger="<C-K>"
 
     " NERDTree
-    nmap <C-N> :NERDTreeToggle<CR>
+    nnoremap <C-N> :NERDTreeToggle<CR>
 
     " Airline
     set laststatus=2
     let g:airline_theme = 'forell'
 
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
     let g:airline_powerline_fonts = 1
 
     let g:airline#extensions#tabline#enabled = 1
