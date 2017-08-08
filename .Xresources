@@ -10,8 +10,8 @@ dzen2.font: Hack:style=bold:size=10
 dzen2.foreground: #C4C4C4
 dzen2.background: #101112
 
-*color0:       #101112
-*color8:       #465457
+*color0:       #151517
+*color8:       #1d1d21
 
 *color1:       #992525
 *color9:       #ca4d4d

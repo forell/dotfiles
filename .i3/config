@@ -40,7 +40,7 @@ set $right l
 # misc vars
 set $term termite
 set_from_resource $fg i3wm.color15 #c4c4c4
-set_from_resource $bg i3wm.color0 #151517
+set $bg #101112
 set_from_resource $red i3wm.color1 #992525
 set_from_resource $hlight i3wm.color3 #d27049
 set_from_resource $urgent i3wm.color11 #e5ab57
@@ -186,9 +186,6 @@ bindsym $mod+Shift+Return [class="drop-down"] scratchpad show
 # launcher
 bindsym $mod+d $exec_q j4-dmenu-desktop --no-generic --usage-log=$HOME/.cache/dmenu_recent
 bindsym $mod+Shift+d $exec_q dmenu-run-recent
-bindsym --release Mod1+Tab $exec_q $HOME/bin/i3/rofiwindow.sh
-
-
 
 ################
 # misc keybinds
@@ -266,6 +263,7 @@ for_window [class="gnuplot_qt"] floating enable
 for_window [class="float_this"] floating enable
 
 for_window [class="Skype"] sticky enable
+for_window [title="Riot - Pentadactyl"] sticky enable
 
 assign [class="Firefox"] $ws2
 assign [class="discord"] $ws10

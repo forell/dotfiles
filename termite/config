@@ -9,7 +9,7 @@ foreground = #c4c4c4
 background = #151517
 
 color0  = #151517
-color8  = #465457
+color8  = #1d1d21
 
 color1  = #992525
 color9  = #ca4d4d
@@ -31,7 +31,5 @@ color14 = #76a0a0
 
 color7  = #707880
 color15 = #c4c4c4
-
-color124 = #992525
 
 # vim: ft=cfg
