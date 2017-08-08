@@ -224,8 +224,6 @@ discard_colors_if_item_is_selected = yes
 progressbar_look = ▬●─
 #
 #
-progressbar_boldness = no
-#
 ## Available values: database, playlist.
 ##
 #default_place_to_search_in = database
@@ -412,8 +410,6 @@ color1 = cyan
 #
 color2 = yellow
 #
-main_window_highlight_color = white
-#
 progressbar_color = 8
 #
 progressbar_elapsed_color = red
@@ -427,3 +423,4 @@ progressbar_elapsed_color = red
 window_border_color = yellow
 #
 #active_window_border = red
+# vim: ft=cfg

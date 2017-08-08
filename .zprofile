@@ -1,9 +1,9 @@
-PATH=$PATH:$HOME/bin/path
+PATH=$PATH:$HOME/bin
 
 export MANPATH=$HOME/.local/share/man:
-export LESS_TERMCAP_md=$'\e[01;38;5;124m'
+export LESS_TERMCAP_md=$'\e[01;38;5;1m'
 export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;31;37m'
+export LESS_TERMCAP_so=$'\e[01;38;5;11m'
 export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
