@@ -59,8 +59,8 @@ prompt_vcs_status() {
     ahead=$(git rev-list @{u}.. --count)
     behind=$(git rev-list ..@{u} --count)
 
-    [ "$ahead"  -ne "0" ] && vcs_status="$vcs_status  $ahead"
-    [ "$behind" -ne "0" ] && vcs_status="$vcs_status  $behind"
+    [ "$ahead"  -ne "0" ] && vcs_status="$vcs_status  $ahead"
+    [ "$behind" -ne "0" ] && vcs_status="$vcs_status  $behind"
 
     echo "${grayall}[%f${vcs_status}${grayall}]"
 }
