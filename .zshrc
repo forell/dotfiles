@@ -56,8 +56,8 @@ prompt_vcs_status() {
     [ -z "$vcs_info_msg_0_" ] && return
 
     vcs_status=" $vcs_info_msg_0_"
-    ahead=$(git rev-list @{u}.. --count)
-    behind=$(git rev-list ..@{u} --count)
+    ahead=$(git rev-list @{u}.. --count 2> /dev/null)
+    behind=$(git rev-list ..@{u} --count 2> /dev/null)
 
     [ "$ahead"  -ne "0" ] && vcs_status="$vcs_status  $ahead"
     [ "$behind" -ne "0" ] && vcs_status="$vcs_status  $behind"
