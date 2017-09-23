@@ -1,0 +1,29 @@
+set recolor true
+set recolor-darkcolor "#aaaaaa"
+set recolor-lightcolor "#181818"
+
+
+set font "monospace normal 11"
+set window-title-home-tilde true
+set statusbar-home-tilde true
+set selection-clipboard "clipboard"
+
+set completion-bg "#181818"
+set completion-fg "#c4c4c4"
+set completion-group-bg "#121212"
+set completion-group-fg "#c4c4c4"
+set completion-highlight-bg "#992525"
+set completion-highlight-fg "#c4c4c4"
+set default-bg "#181818"
+set default-fg "#c4c4c4"
+set inputbar-bg "#181818"
+set inputbar-fg "#c4c4c4"
+set statusbar-bg "#121212"
+set statusbar-fg "#c4c4c4"
+set highlight-color "#992525"
+set highlight-active-color "#e5ab57"
+
+set index-bg "#181818"
+set index-fg "#c4c4c4"
+set index-active-bg "#992525"
+set index-active-fg "#c4c4c4"
