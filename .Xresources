@@ -1,17 +1,11 @@
-Xft.antialias:  1
-Xft.autohint:   0
-Xft.dpi:        96
-Xft.hinting:    0
-Xft.hintstyle:  hintnone
-Xft.lcdfilter:  lcdnone
-Xft.rgba:       none
+Xft.dpi:    96
 
 dzen2.font: Hack:style=bold:size=10
 dzen2.foreground: #C4C4C4
-dzen2.background: #101112
+dzen2.background: #121212
 
-*color0:       #151517
-*color8:       #1d1d21
+*color0:       #181818
+*color8:       #242424
 
 *color1:       #992525
 *color9:       #ca4d4d
@@ -31,5 +25,5 @@ dzen2.background: #101112
 *color6:       #477b7b
 *color14:      #76a0a0
 
-*color7:       #707880
+*color7:       #737373
 *color15:      #c4c4c4

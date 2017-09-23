@@ -2,10 +2,6 @@
 # mod
 set $mod Mod4
 
-#######
-# font
-font pango:Hack Bold 0
-
 #################
 # workspace vars
 set $ws1 1
@@ -40,7 +36,8 @@ set $right l
 # misc vars
 set $term termite
 set_from_resource $fg i3wm.color15 #c4c4c4
-set $bg #101112
+set_from_resource $bg i3wm.color0 #181818
+set $bg2 #121212
 set_from_resource $red i3wm.color1 #992525
 set_from_resource $hlight i3wm.color3 #d27049
 set_from_resource $urgent i3wm.color11 #e5ab57
@@ -158,19 +155,20 @@ $exec_q $HOME/bin/i3/run_bar.sh
 
 #############
 # appearance
-#                       border  backgr  text    indicator
-client.focused          $red    $red    $fg     $hlight
-client.focused_inactive $bg     $bg     $fg     $bg
-client.unfocused        $bg     $bg     $fg     $bg
+client.focused          $bg     $bg     $fg     $bg2
+client.focused_inactive $bg2    $bg2    $fg     $bg
+client.unfocused        $bg2    $bg2    $fg     $bg
 client.urgent           $urgent $urgent $fg     $urgent
 
-new_window normal 0
-new_float normal 0
+font pango:Hack Bold 11
+
+new_window pixel 0
+new_float pixel 0
 focus_follows_mouse no
 
 gaps inner 18 
 gaps outer 6
-# smart_gaps on
+smart_gaps on
 smart_borders on
 
 ###########
@@ -190,12 +188,7 @@ bindsym $mod+Shift+d $exec_q dmenu-run-recent
 ################
 # misc keybinds
 bindsym --release $mod+u $exec_q "$HOME/bin/i3/updates_dzen"
-
-bindsym --release $mod+t $exec_q "rofi -dmenu -p '' < ~/todo/todo.txt"
-bindsym $mod+Shift+t $exec_q termite --class float_this -e "vim /home/forell/todo/todo.txt /home/forell/todo/done.txt"
-
 bindsym --release $mod+c $exec_q "$HOME/bin/i3/cal"
-
 bindsym $mod+Shift+P $exec_q passmenu
 
 #######
