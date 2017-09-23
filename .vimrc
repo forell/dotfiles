@@ -1,42 +1,37 @@
 set nocompatible
-set rtp+=~/.vim/bundle/repos/github.com/Shougo/dein.vim
-call dein#begin('~/.vim/bundle')
-call dein#add('Shougo/dein.vim')
 
+call plug#begin('~/.vim/plugged')
 " Appearance
-call dein#add('forell/vim-forell')
-call dein#add('vim-airline/vim-airline')
+Plug 'forell/vim-forell'
+Plug 'vim-airline/vim-airline'
 " Language support and autocomplete
-call dein#add('Valloric/YouCompleteMe')
-call dein#add('SirVer/ultisnips')
-call dein#add('ludovicchabant/vim-gutentags')
-call dein#add('octol/vim-cpp-enhanced-highlight')
-call dein#add('rust-lang/rust.vim')
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --system-libclang --system-boost'}
+Plug 'SirVer/ultisnips'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
 " Functionality
-call dein#add('tpope/vim-repeat')
-call dein#add('tpope/vim-surround')
-call dein#add('tomtom/tcomment_vim')
-call dein#add('justinmk/vim-sneak')
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tomtom/tcomment_vim'
+Plug 'justinmk/vim-sneak'
 " Misc
-call dein#add('scrooloose/nerdtree')
-call dein#add('mbbill/undotree')
-call dein#add('freitass/todo.txt-vim')
-call dein#add('tmux-plugins/vim-tmux-focus-events')
-call dein#add('ap/vim-css-color')
-call dein#add('gerw/vim-HiLinkTrace')
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
+Plug 'ap/vim-css-color'
+Plug 'gerw/vim-HiLinkTrace', {'on': 'HLT'}
+call plug#end()
 
-call dein#end()
-
-filetype plugin indent on
-syntax on
+" Leader
+let mapleader="\<Space>"
+let maplocalleader="\\"
+    " Prevent space from moving the cursor
+    noremap   <Space>  <NOP>
 
 " Line numbering
 set number relativenumber cursorline
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
-    " Only works in tmux
-    autocmd FocusLost * :set norelativenumber
-    autocmd FocusGained * :set relativenumber
 
 " Line wrapping and scrolling
 set nowrap sidescroll=5 scrolloff=5
@@ -53,17 +48,11 @@ set undofile undodir=~/.vim/undo// noswapfile
 " Reduce key code timeout
 set ttimeoutlen=100
 
-" Slightly more intuitive splitting
+" More intuitive splitting
 set splitbelow splitright
 
 " Misc
 set encoding=utf-8 shortmess=Ia hidden confirm wildmenu showcmd noshowmode
-
-" Leader
-let mapleader="\<Space>"
-let maplocalleader="\\"
-    " Prevent space from moving the cursor
-    noremap   <Space>  <NOP>
 
 " Less awkward copy and paste from/to X
 vnoremap <Leader>y "+y
@@ -107,11 +96,11 @@ colorscheme forell
 
 " Set cursor shape
 if &term =~ "xterm" || &term =~ "screen"
-    autocmd VimEnter * silent !printf "[1 q"
+    autocmd VimEnter * silent !printf "\e[1 q"
     let &t_EI = "\<Esc>[1 q"
     let &t_SI = "\<Esc>[3 q"
     let &t_SR = "\<Esc>[1 q"
-    autocmd VimLeave * silent !printf "[3 q"
+    autocmd VimLeave * silent !printf "\e[3 q"
 endif
 
 " Save sessions
