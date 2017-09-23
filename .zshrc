@@ -37,7 +37,9 @@ bindkey '\e[B' down-line-or-beginning-search
 autoload -Uz colors && colors
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git*' formats "%b"
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr "%{\e[1;38;5;11m%}*"
+zstyle ':vcs_info:git*' formats "%b%u"
 setopt prompt_subst
 
 red=$'%{\e[1;38;5;1m%}'
