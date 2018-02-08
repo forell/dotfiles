@@ -1,5 +1,5 @@
 [options]
-font = Hack Regular 11
+font = Hack Regular 12
 cursor_shape = underline
 mouse_autohide = true
 fullscreen = false
@@ -11,8 +11,8 @@ background = #181818
 color0  = #181818
 color8  = #242424
 
-color1  = #992525
-color9  = #ca4d4d
+color1  = #802626
+color9  = #993131
 
 color2  = #5e6d36
 color10 = #89a355

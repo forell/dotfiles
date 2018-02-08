@@ -4,11 +4,15 @@ dzen2.font: Hack:style=bold:size=10
 dzen2.foreground: #C4C4C4
 dzen2.background: #121212
 
+urxvt.font: xft:Hack:size=12
+urxvt.background: #181818
+urxvt.foreground: #c4c4c4
+
 *color0:       #181818
 *color8:       #242424
 
-*color1:       #992525
-*color9:       #ca4d4d
+*color1:       #802626
+*color9:       #993131
 
 *color2:       #5e6d36
 *color10:      #89a355
