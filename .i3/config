@@ -37,9 +37,8 @@ set $right l
 set $term termite
 set_from_resource $fg i3wm.color15 #c4c4c4
 set_from_resource $bg i3wm.color0 #181818
-set $bg2 #121212
-set_from_resource $red i3wm.color1 #992525
-set_from_resource $hlight i3wm.color3 #d27049
+set_from_resource $bg_light i3wm.color8 #242424
+set_from_resource $red i3wm.color1 #802626
 set_from_resource $urgent i3wm.color11 #e5ab57
 set $exec_q exec --no-startup-id
 set $lock $HOME/bin/i3/lock.sh
@@ -155,15 +154,15 @@ $exec_q $HOME/bin/i3/run_bar.sh
 
 #############
 # appearance
-client.focused          $bg     $bg     $fg     $bg2
-client.focused_inactive $bg2    $bg2    $fg     $bg
-client.unfocused        $bg2    $bg2    $fg     $bg
-client.urgent           $urgent $urgent $fg     $urgent
+client.focused          $bg_light   $bg_light   $fg     $bg_light
+client.focused_inactive $bg         $bg         $fg     $bg
+client.unfocused        $bg         $bg         $fg     $bg
+client.urgent           $urgent     $urgent     $fg     $urgent
 
-font pango:Hack Bold 11
+font pango:Fira Sans 13
 
-new_window pixel 0
-new_float pixel 0
+new_window pixel 3
+new_float pixel 3
 focus_follows_mouse no
 
 gaps inner 18 
@@ -177,13 +176,12 @@ bindsym $mod+Return exec $term
 
 # "drop-down" style terminal
 for_window [class="drop-down"] floating enable, sticky enable, border none, move position 0px 30px, move to scratchpad
-$exec_q termite --class drop-down --geometry 1920x400
+$exec_q $term --class drop-down --geometry 1920x400
 bindsym $mod+Shift+Return [class="drop-down"] scratchpad show
 
 ###########
 # launcher
-bindsym $mod+d $exec_q j4-dmenu-desktop --no-generic --usage-log=$HOME/.cache/dmenu_recent
-bindsym $mod+Shift+d $exec_q dmenu-run-recent
+bindsym $mod+d $exec_q dmenu-run-recent
 
 ################
 # misc keybinds
@@ -240,7 +238,7 @@ mode "updates" {
 
 ##################
 # keyboard layout
-bindsym $mod+KP_Subtract $exec_q xkb-switch -n && pkill -RTMIN+11 i3blocks
+bindsym $mod+KP_Subtract $exec_q xkb-switch -n
 
 #############
 # screenshot
@@ -255,9 +253,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="gnuplot_qt"] floating enable
 for_window [class="float_this"] floating enable
 
-for_window [class="Skype"] sticky enable
-for_window [title="Riot - Pentadactyl"] sticky enable
+for_window [class="Riot"] sticky enable
 
-assign [class="Firefox"] $ws2
-assign [class="discord"] $ws10
-assign [class="Skype"] $ws10
+assign [class="Nightly"] $ws2
+assign [class="TelegramDesktop"] $ws10
