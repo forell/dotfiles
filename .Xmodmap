@@ -1,3 +1,2 @@
-remove Lock = Caps_Lock
-keysym Caps_Lock = Control_L
 keysym Menu = Super_R
+keysym KP_Enter = Multi_key
