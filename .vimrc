@@ -2,7 +2,7 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 " Appearance
-Plug 'forell/vim-forell'
+Plug '~/devel/vimscript/vim-forell'
 Plug 'vim-airline/vim-airline'
 " Language support and autocomplete
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --system-libclang --system-boost'}
@@ -40,7 +40,7 @@ set nowrap sidescroll=5 scrolloff=5
 set foldcolumn=1 foldmethod=indent foldlevel=99
 
 " Indentation
-set expandtab tabstop=4 shiftwidth=4 softtabstop=4 cinoptions=g0,j1
+set expandtab tabstop=4 shiftwidth=4 softtabstop=4 cinoptions=g0,j1,:0,L0
 
 " Files created by vim
 set undofile undodir=~/.vim/undo// noswapfile
@@ -139,11 +139,12 @@ runtime! ftplugin/man.vim
     set laststatus=2
     let g:airline_theme = 'forell'
 
-    let g:airline_left_sep = ''
+    let g:airline_left_sep = ' '
     let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
+    let g:airline_right_sep = ' '
     let g:airline_right_alt_sep = ''
     let g:airline_powerline_fonts = 1
+    let g:airline#extensions#tabline#formatter = 'default'
 
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#buffer_nr_show = 1
