@@ -9,8 +9,8 @@ autoload -Uz compinit && compinit
 
 # History
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=100000
+SAVEHIST=100000
 setopt append_history share_history inc_append_history hist_verify hist_reduce_blanks hist_ignore_dups
 
 setopt autocd
@@ -42,7 +42,7 @@ zstyle ':vcs_info:*' unstagedstr "%{\e[1;38;5;11m%}*"
 zstyle ':vcs_info:git*' formats "%b%u"
 setopt prompt_subst
 
-red=$'%{\e[1;38;5;1m%}'
+red=$'%{\e[1;38;5;9m%}'
 gray=$'%{\e[1;38;5;8m%}'
 redall=$'%{\e[1;38;5;1;48;5;1m%}'
 grayall=$'%{\e[1;38;5;8;48;5;8m%}'
@@ -67,8 +67,10 @@ prompt_vcs_status() {
     echo "${grayall}[%f${vcs_status}${grayall}]"
 }
 
+prompt_pwd='%(5~@…/%3~@%~)'
+
 PS1=" ${red}%n%f@${red}%m \
-${redall}[%f%8~${redall}]"'%{$reset_color%}$(prompt_vcs_status)%{$reset_color%} '
+${redall} %f${prompt_pwd}${redall} "'%{$reset_color%}$(prompt_vcs_status)%{$reset_color%} '
 
 PS2="${gray}❱%{$reset_color%} "
 
